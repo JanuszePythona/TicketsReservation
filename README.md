@@ -1,18 +1,18 @@
-<h1># TicketsReservation<h1/>
+# TicketsReservation
 
 Project for "Python in the Enterprise"
 
-<h1>Documentation:<h1/>
+Documentation:
 
 https://drive.google.com/open?id=1wcopF_uSMzlVLMwfc10dgVTeRBsx4zqW2QxQXrPgBHQ
 
 
-<h1>Models (pre-alpha):<h1/>
+Models (pre-alpha):
 
 https://1drv.ms/b/s!AjIkuAdByMDwhuQWrWTTo2GRrd10Vw
 
 
-<h1>Team:<h1/>
+Team:
 
 Patryk Matwijczuk </br>
 Kamil Potoczny </br>
