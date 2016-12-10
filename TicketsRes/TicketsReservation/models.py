@@ -2,45 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-
-# Create your models here.
-
-class Role(models.Model):
-    name = models.CharField(max_length=32)
-
-    def __str__(self):
-        return self.name
-
-
-class User(models.Model):
-    name = models.CharField(max_length=32)
-    surname = models.CharField(max_length=32)
-    email = models.CharField(max_length=32)
-    phone_number = models.CharField(max_length=32)
-    role = models.ForeignKey(Role)
-
-    def __str__(self):
-        return self.name
-
-
-class Event(models.Model):
-    name = models.CharField(max_length=32)
-    address = models.CharField(max_length=32)
-    date = models.DateField()
-    description = models.CharField(max_length=200)
-    website = models.CharField(max_length=32)
-
-    def __str__(self):
-        return self.name
-
-
-class Sector(models.Model):
-    name = models.CharField(max_length=32)
-    max_column = models.IntegerField()
-    max_row = models.IntegerField()
-
-    def __str__(self):
-        return self.name
+from EventCreator.models import Sector, Event
+from Login.models import User
 
 
 class Tickets(models.Model):
