@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('Account', '0003_role_user'),
+        ('Login', '0003_role_user'),
     ]
 
     operations = [
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('address', models.CharField(max_length=32)),
                 ('description', models.CharField(max_length=200)),
                 ('website', models.CharField(max_length=32)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Account.User')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Login.User')),
             ],
         ),
         migrations.CreateModel(
