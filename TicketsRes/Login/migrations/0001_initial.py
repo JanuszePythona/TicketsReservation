@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('surname', models.CharField(max_length=32)),
                 ('email', models.CharField(max_length=32)),
                 ('phone_number', models.CharField(max_length=32)),
-                ('role', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Account.Role')),
+                ('role', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Login.Role')),
             ],
         ),
     ]
