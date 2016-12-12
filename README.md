@@ -2,6 +2,8 @@
 
 Project for "Python in the Enterprise"
 
+Coverage: [![Coverage Status](https://coveralls.io/repos/github/JanuszePythona/TicketsReservation/badge.svg?branch=master)](https://coveralls.io/github/JanuszePythona/TicketsReservation?branch=master)
+
 Documentation:
 
 https://drive.google.com/open?id=1wcopF_uSMzlVLMwfc10dgVTeRBsx4zqW2QxQXrPgBHQ
