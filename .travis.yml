@@ -7,4 +7,4 @@ python:
 install:     "pip install -r requirements.txt"     
 
 # command to run tests
-script: "cd TicketsRes;python manage.py test TicketsReservation/"
+script: "cd TicketsRes;python manage.py test"
