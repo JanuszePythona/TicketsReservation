@@ -1,12 +1,8 @@
-from django.http import HttpResponse
-from django.template import loader
-
-from .models import *
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 
-def login(request):
-    template = loader.get_template('registration/login.html')
+@login_required
+def user_home(request):
 
-    return HttpResponse(template.render(request))
-
-
+    return render(request, 'user_home.html')
