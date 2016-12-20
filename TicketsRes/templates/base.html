@@ -39,6 +39,7 @@
                     {% if user.is_authenticated %}
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span>  Hi {{ user.username }}!</a></li>
                         <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                        <li><a href="{% url 'add_event' %}"><span class="glyphicon glyphicon-log-in"></span> Add Event</a></li>
                     {% else %}
 
                             <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span> Login</a></li>

@@ -1,13 +1,12 @@
 from __future__ import unicode_literals
 
+from django.contrib.auth.models import User
 from django.db import models
-
-from Login.models import User
 
 
 class Event(models.Model):
     name = models.CharField(max_length=32)
-    address = models.CharField(max_length=32,)
+    address = models.CharField(max_length=32)
     description = models.CharField(max_length=200)
     website = models.CharField(max_length=32)
     user = models.ForeignKey(User)

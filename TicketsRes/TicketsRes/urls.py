@@ -20,5 +20,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^', include('TicketsReservation.urls')),
     url(r'^', include('Login.urls')),
+    url(r'^', include('EventCreator.urls')),
     url(r'^admin/', admin.site.urls),
 ]
