@@ -5,15 +5,9 @@ Project for "Python in the Enterprise"
 [![Build Status](https://travis-ci.org/JanuszePythona/TicketsReservation.svg?branch=master)](https://travis-ci.org/JanuszePythona/TicketsReservation)
 [![Coverage Status](https://coveralls.io/repos/github/JanuszePythona/TicketsReservation/badge.svg?branch=master)](https://coveralls.io/github/JanuszePythona/TicketsReservation?branch=master)
 
-Documentation:
+[Documentation](https://drive.google.com/open?id=1wcopF_uSMzlVLMwfc10dgVTeRBsx4zqW2QxQXrPgBHQ)
 
-https://drive.google.com/open?id=1wcopF_uSMzlVLMwfc10dgVTeRBsx4zqW2QxQXrPgBHQ
-
-
-Models (pre-alpha):
-
-https://1drv.ms/b/s!AjIkuAdByMDwhuQWrWTTo2GRrd10Vw
-
+[Models](https://1drv.ms/b/s!AjIkuAdByMDwhuQWrWTTo2GRrd10Vw)
 
 Team:
 
