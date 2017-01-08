@@ -9,3 +9,4 @@ omit =
     *admin.py*
 	*tests.py*
 	*manage.py*
+	*apps.py*
