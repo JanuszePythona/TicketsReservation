@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.datetime_safe import datetime
 
 
 class Event(models.Model):
@@ -10,7 +11,7 @@ class Event(models.Model):
     description = models.CharField(max_length=10000)
     website = models.CharField(max_length=255)
     user = models.ForeignKey(User)
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
         return self.name
