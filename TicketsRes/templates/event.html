@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
 {% block title %}Tickets Reservation{% endblock %}
+{% block buttons %}{% endblock %}
+{% block headline %}<h1>{{ activity.name }}</h1>{% endblock %}
 
 {% block content %}
-    <h1>{{ activity.name }}</h1>
+
     <p>{{ activity.address }}</p>
-    <p><a href="{{ activity.website }}">WEBSITE</a></p>
+    <p><a target="_blank"  href="{{ activity.website }}">WEBSITE</a></p>
     <p>{{ activity.description }}</p>
 
 {% endblock %}
