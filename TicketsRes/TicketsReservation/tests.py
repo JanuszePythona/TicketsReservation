@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from models import Sector, Event
 from models import Tickets
 from django.test import TestCase
-from django.utils import timezone
-
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import resolve
 
 class TicketsReservationTestCase(TestCase):
     def setUp(self):
@@ -32,3 +32,26 @@ class TicketsReservationTestCase(TestCase):
     def test_model_relation(self):
         self.assertEquals(self.event1.tickets_set.count(), 2)
         self.assertEquals(self.sector1.tickets_set.count(), 2)
+
+    def test_urls_names(self):
+        url = reverse('about')
+        self.assertEqual(url, '/about')
+        url = reverse('contact')
+        self.assertEqual(url, '/contact')
+        url = reverse('user_home')
+        self.assertEqual(url, '/user_home/')
+        url = reverse('view_event',kwargs={'event_id':1})
+        self.assertEqual(url, '/event/1')
+
+
+    def test_url_connect_to_view(self):
+        resolver = resolve('/')
+        self.assertEqual(resolver.view_name, 'index')
+        resolver = resolve('/about')
+        self.assertEqual(resolver.view_name, 'about')
+        resolver = resolve('/contact')
+        self.assertEqual(resolver.view_name, 'contact')
+        resolver = resolve('/user_home/')
+        self.assertEqual(resolver.view_name, 'user_home')
+        resolver = resolve('/event/1')
+        self.assertEqual(resolver.view_name, 'view_event')

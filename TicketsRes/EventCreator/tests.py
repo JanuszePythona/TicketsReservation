@@ -2,7 +2,8 @@ from django.contrib.auth.models import User
 from models import Event, Sector
 from django.test import TestCase
 from django.utils.datetime_safe import datetime
-
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import resolve
 
 class EventCreatorTestCase(TestCase):
     def setUp(self):
@@ -43,3 +44,11 @@ class EventCreatorTestCase(TestCase):
     def test_sector_str(self):
         sector = Sector.objects.get(pk=1)
         self.assertEqual(str(sector), sector.name)
+
+    def test_urls_names(self):
+        url = reverse('add_event')
+        self.assertEqual(url, '/add_event/')
+
+    def test_url_connect_to_view(self):
+        resolver = resolve('/add_event/')
+        self.assertEqual(resolver.view_name, 'add_event')

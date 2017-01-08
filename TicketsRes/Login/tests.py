@@ -1,9 +1,9 @@
 from django.test import TestCase
-
-# Create your tests here.
 from Login.models import User,Role
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import resolve
 
-# Create your tests here.
+
 class LoginTestCase(TestCase):
     def setUp(self):
         self.role1 = Role.objects.create(name='User')
@@ -36,3 +36,19 @@ class LoginTestCase(TestCase):
     def test_user_str(self):
         user = User.objects.get(pk=1)
         self.assertEqual(str(user), user.name)
+
+    def test_urls_names(self):
+        url = reverse('register')
+        self.assertEqual(url, '/register/')
+        url = reverse('login')
+        self.assertEqual(url, '/login/')
+        url = reverse('logout')
+        self.assertEqual(url, '/logout/')
+
+    def test_url_connect_to_view(self):
+        resolver = resolve('/register/')
+        self.assertEqual(resolver.view_name, 'register')
+        resolver = resolve('/login/')
+        self.assertEqual(resolver.view_name, 'login')
+        resolver = resolve('/logout/')
+        self.assertEqual(resolver.view_name, 'logout')
