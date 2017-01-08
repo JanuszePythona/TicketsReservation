@@ -31,6 +31,13 @@ def about(request):
     return HttpResponse(template.render(context, request))
 
 
+def contact(request):
+    template = loader.get_template('contact.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
 @login_required
 def user_home(request):
     template = loader.get_template('user_home.html')
