@@ -10,6 +10,7 @@ class Event(models.Model):
     description = models.CharField(max_length=10000)
     website = models.CharField(max_length=255)
     user = models.ForeignKey(User)
+    date = models.DateTimeField()
 
     def __str__(self):
         return self.name
