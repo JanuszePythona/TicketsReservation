@@ -28,6 +28,16 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+# EMAIL HOW TO:
+# email = EmailMessage('Subject', 'Body', to=['grazyna@gmail.com'])
+# email.send()
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'janusze.pythona@gmail.com'
+EMAIL_HOST_PASSWORD = 'lubieplacki777'
+
 # Application definition
 
 INSTALLED_APPS = [
