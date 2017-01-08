@@ -22,8 +22,6 @@ class TicketsReservationTestCase(TestCase):
         self.assertEquals(self.ticket1.sector, self.sector1)
         self.assertEquals(self.ticket1.column, 2)
         self.assertEquals(self.ticket1.row, 3)
-        self.assertEquals(self.ticket1.price, 12.01)
-        self.assertEquals(self.ticket1.guest_name, 'Andrew')
         self.assertEquals(self.ticket1.guest_surname, 'Golara')
         self.assertEquals(self.ticket1.guest_email, 'golara@o.pl')
         ticket_test2 = Tickets.objects.get(pk=2)
@@ -40,8 +38,6 @@ class TicketsReservationTestCase(TestCase):
         self.assertEqual(url, '/contact')
         url = reverse('user_home')
         self.assertEqual(url, '/user_home/')
-        url = reverse('view_event',kwargs={'event_id':1})
-        self.assertEqual(url, '/event/1')
 
 
     def test_url_connect_to_view(self):
@@ -53,5 +49,3 @@ class TicketsReservationTestCase(TestCase):
         self.assertEqual(resolver.view_name, 'contact')
         resolver = resolve('/user_home/')
         self.assertEqual(resolver.view_name, 'user_home')
-        resolver = resolve('/event/1')
-        self.assertEqual(resolver.view_name, 'view_event')

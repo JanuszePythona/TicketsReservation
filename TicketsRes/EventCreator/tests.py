@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from models import Event, Sector
+from EventCreator.models import Event, Sector
 from django.test import TestCase
 from django.utils.datetime_safe import datetime
 from django.core.urlresolvers import reverse

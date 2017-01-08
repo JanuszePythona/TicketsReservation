@@ -1,11 +1,15 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from Login.models import User,Role
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import resolve
+from views import register
+from django.contrib.auth.models import User as Usr
 
 
 class LoginTestCase(TestCase):
     def setUp(self):
+        self.factory = RequestFactory()
+        self.user = Usr.objects.create_user(username='andrew', email='andrzej@andrzej.pl', password='supertajnehasuo')
         self.role1 = Role.objects.create(name='User')
         self.role2 = Role.objects.create(name='Admin')
         self.user1 = User.objects.create(name='Jurand', surname='zeSpychowa', email='jurand@o.pl',phone_number='12343', role=self.role1)
@@ -52,3 +56,9 @@ class LoginTestCase(TestCase):
         self.assertEqual(resolver.view_name, 'login')
         resolver = resolve('/logout/')
         self.assertEqual(resolver.view_name, 'logout')
+
+    def test_login_view_loads(self):
+        response = self.client.get('/login/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/login.html')
+
