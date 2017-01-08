@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
-
 from models import Event, Sector
 from django.test import TestCase
 from django.utils.datetime_safe import datetime
+
 
 class EventCreatorTestCase(TestCase):
     def setUp(self):
@@ -16,16 +16,16 @@ class EventCreatorTestCase(TestCase):
                                            website='web.com.pl', user=self.user2)
         self.sector1 = Sector.objects.create(name='Sektor1', max_column=5, max_row=10)
 
-    def test_eventdata(self):
+    def test_event_data(self):
         self.assertEquals(self.event1.name, 'KinoBambino')
         self.assertEquals(self.event1.address, 'test_adress')
         self.assertEquals(self.event1.description, 'test_descr')
         self.assertEquals(self.event1.website, 'web.web')
         self.assertEquals(self.event1.date, '2017-01-07 17:16:35')
-        eventtest2 = Event.objects.get(pk=2)
-        self.assertNotEquals(eventtest2.name, 'KinoBambino')
-        eventtest3 = Event.objects.get(pk=3)
-        self.assertNotEquals(eventtest3.date, datetime.now())
+        event_test2 = Event.objects.get(pk=2)
+        self.assertNotEquals(event_test2.name, 'KinoBambino')
+        event_test3 = Event.objects.get(pk=3)
+        self.assertNotEquals(event_test3.date, datetime.now())
 
     def test_sectordata(self):
         self.assertEquals(self.sector1.name, 'Sektor1')
@@ -35,3 +35,11 @@ class EventCreatorTestCase(TestCase):
     def test_model_relation(self):
         self.assertEquals(self.user1.event_set.count(), 2)
         self.assertEquals(self.user2.event_set.count(), 1)
+
+    def test_roles_str(self):
+        event = Event.objects.get(pk=1)
+        self.assertEqual(str(event), event.name)
+
+    def test_sector_str(self):
+        sector = Sector.objects.get(pk=1)
+        self.assertEqual(str(sector), sector.name)

@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-
 from django.db import models
 
 from EventCreator.models import Sector, Event
@@ -15,6 +14,3 @@ class Tickets(models.Model):
     guest_name = models.CharField(max_length=32)
     guest_surname = models.CharField(max_length=32)
     guest_email = models.CharField(max_length=32)
-
-    def __str__(self):
-        return self.name

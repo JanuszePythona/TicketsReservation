@@ -23,7 +23,16 @@ class LoginTestCase(TestCase):
     def test_roles(self):
         self.assertEquals(self.role1.name, 'User')
         self.assertEquals(self.role2.name, 'Admin')
+        self.assertNotEquals(Role.objects.get(pk=2).name, self.role1.name)
 
     def test_model_relation(self):
         self.assertEquals(self.role1.user_set.count(),2)
         self.assertNotEquals(self.role2.user_set.count(), 2)
+
+    def test_roles_str(self):
+        role = Role.objects.get(pk=1)
+        self.assertEqual(str(role), role.name)
+
+    def test_user_str(self):
+        user = User.objects.get(pk=1)
+        self.assertEqual(str(user), user.name)
