@@ -5,10 +5,10 @@ from django.db import models
 
 
 class Event(models.Model):
-    name = models.CharField(max_length=32)
-    address = models.CharField(max_length=32)
-    description = models.CharField(max_length=200)
-    website = models.CharField(max_length=32)
+    name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    description = models.CharField(max_length=10000)
+    website = models.CharField(max_length=255)
     user = models.ForeignKey(User)
 
     def __str__(self):
