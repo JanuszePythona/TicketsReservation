@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from models import Sector, Event
 from models import Tickets
 from django.test import TestCase
-
+from django.utils import timezone
 
 # Create your tests here.
 class TicketsReservationTestCase(TestCase):
