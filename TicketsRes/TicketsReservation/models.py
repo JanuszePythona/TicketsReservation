@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 from django.db import models
 
 from EventCreator.models import Sector, Event
-from Login.models import User
 
 
 class Tickets(models.Model):

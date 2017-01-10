@@ -1,20 +1,20 @@
 from django.contrib.auth.models import User
-
 from models import Sector, Event
 from models import Tickets
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import resolve
 
+
 class TicketsReservationTestCase(TestCase):
     def setUp(self):
         self.user1 = User.objects.create(username='admin', first_name='Jurand', last_name='zeSpychowa', email='jurand@o.pl')
         self.event1 = Event.objects.create(name='KinoBambino', address='test_adress', description='test_descr',
-                                           website='web.web', user=self.user1)
-        self.sector1 = Sector.objects.create(name='Sektor1', max_column=5, max_row=10)
-        self.ticket1 = Tickets.objects.create(event=self.event1, sector=self.sector1, column=2, row=3, price=12.01,
+                                           website='web.web', user=self.user1, date='2017-01-10 17:16:35', img_url='http://www.zdjecfe.com/testfo.png')
+        self.sector1 = Sector.objects.create(name='Sector1', max_column=5, max_row=10, event = self.event1, price = 21.37)
+        self.ticket1 = Tickets.objects.create(event=self.event1, sector=self.sector1, column=2, row=3,
                                               guest_name='Andrew', guest_surname='Golara', guest_email='golara@o.pl')
-        self.ticket2 = Tickets.objects.create(event=self.event1, sector=self.sector1, column=7, row=8, price=15.50,
+        self.ticket2 = Tickets.objects.create(event=self.event1, sector=self.sector1, column=7, row=8,
                                               guest_name='Andrzej', guest_surname='Golota', guest_email='golota@o.pl')
 
     def test_ticket_data(self):
