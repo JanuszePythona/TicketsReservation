@@ -28,7 +28,7 @@ class EventCreatorTestCase(TestCase):
         event_test2 = Event.objects.get(pk=2)
         self.assertNotEquals(event_test2.name, 'KinoBambino')
         event_test3 = Event.objects.get(pk=3)
-        self.assertGreaterEqual(event_test3.date, datetime.now())
+        self.assertLessEqual(event_test3.date, datetime.now())
 
     def test_sectordata(self):
         self.assertEquals(self.sector1.name, 'Sektor1')
