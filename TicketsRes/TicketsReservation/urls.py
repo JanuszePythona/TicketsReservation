@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^about$', views.about, name='about'),
     url(r'^contact', views.contact, name='contact'),
     url(r'^user_home/$', views.user_home, name='user_home'),
-
+    url(r'^place_reservation/(?P<event_id>[0-9]+)$', views.place_reservation, name='place_reservation'),
 ]

@@ -1,10 +1,13 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
 
+from forms import TicketForm
 from models import Event
-
+from models import Sector
 
 def index(request):
     template = loader.get_template('index.html')
@@ -18,9 +21,25 @@ def index(request):
 def view_event(request, event_id):
     template = loader.get_template('event.html')
     context = {
-        'activity': Event.objects.get(id=event_id)
+        'activity': Event.objects.get(id=event_id),
+        'sectors': Sector.objects.filter(event = event_id)
     }
     return HttpResponse(template.render(context, request))
+
+
+def place_reservation(request, event_id):
+    if request.method == 'POST':
+        form = TicketForm(event_id, request.POST)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.user = request.user
+            event.save()
+
+            send_mail('Test', 'test', 'janusze.pythona@gmail.com', ['kamillo1493@gmail.com'])
+            return render(request, 'user_home.html')
+    else:
+        form = TicketForm(event_id)
+    return render(request, 'place_reservation.html', {'form': form})
 
 
 def about(request):

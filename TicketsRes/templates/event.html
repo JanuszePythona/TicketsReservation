@@ -9,5 +9,21 @@
     <p>{{ activity.address }}</p>
     <p><a target="_blank"  href="{{ activity.website }}">WEBSITE</a></p>
     <p>{{ activity.description }}</p>
+    <p>{{ activity.description }}</p>
+    <p> <img src="{{ activity.img_url }}" class="img-responsive" alt="Tickets"></p>
+
+     <div>
+         {% for sector in sectors %}
+            <li>{{ sector.name}}</li>
+
+            {% empty %}
+                <div>No sectors specified - registration is not possible at the moment</div>
+        {% endfor %}
+    </div>
+        {% if sectors %}
+            <div>
+                <a class="btn btn-lg btn-primary" href="{% url 'place_reservation' event_id=activity.id %}">Reservation</a>
+            </div>
+        {% endif %}
 
 {% endblock %}
