@@ -31,11 +31,13 @@ def place_reservation(request, event_id):
     if request.method == 'POST':
         form = TicketForm(event_id, request.POST)
         if form.is_valid():
-            event = form.save(commit=False)
-            event.user = request.user
-            event.save()
+            ticket = form.save(commit=False)
+            ticket.user = request.user
+            ticket.save()
 
-            send_mail('Test', 'test', 'janusze.pythona@gmail.com', ['kamillo1493@gmail.com'])
+            data = form.cleaned_data
+            email = data['guest_email']
+            send_mail('Test', 'test', 'janusze.pythona@gmail.com', [email])
             return render(request, 'user_home.html')
     else:
         form = TicketForm(event_id)
