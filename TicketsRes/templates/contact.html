@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block title %}About us{% endblock %}
-{% block buttons %}{% endblock %}
-{% block headline %}<h2 class="form-signin-heading">JanuszePythona</h2> {% endblock %}
-{% block content %}
 {% block active%}
         <li><a href="/">Home</a></li>
         <li><a href="{% url 'about' %}">About us</a></li>
         <li class="active"><a href="{% url 'contact' %}">Contact</a></li>
 {% endblock%}
+{% block buttons %}{% endblock %}
+{% block headline %}<h2 class="form-signin-heading">JanuszePythona</h2> {% endblock %}
+{% block content %}
+
     <p>If you have any issue with application, please see picture below.</p>
     <img src="http://data2.cupsell.pl/upload/generator/57322/1304864_product_print-1.jpg" width="20%" height="20%"/>
 

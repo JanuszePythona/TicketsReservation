@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block title %}About us{% endblock %}
-{% block buttons %}{% endblock %}
-{% block headline %}<h2 class="form-signin-heading">JanuszePythona</h2> {% endblock %}
-{% block content %}
-{% block active%}
+{% block active %}
         <li><a href="/">Home</a></li>
         <li class="active"><a href="{% url 'about' %}">About us</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
-{% endblock%}
+{% endblock %}
+{% block buttons %}{% endblock %}
+{% block headline %}<h2 class="form-signin-heading">JanuszePythona</h2> {% endblock %}
+{% block content %}
+
 
     <ul class="list-group">
         <li class="list-group-item">Bartosz Piwnik</li>
