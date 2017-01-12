@@ -1,10 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
-from TicketsReservation.views import view_event
 from forms import EventForm
 from forms import SectorForm
-
 
 @login_required
 def add_event(request):
@@ -15,11 +13,10 @@ def add_event(request):
             event.user = request.user
             event.save()
 
-            return view_event(request, event.id)
+            return render(request, 'user_home.html')
     else:
         form = EventForm()
     return render(request, 'add_event.html', {'form': form})
-
 
 @login_required()
 def add_sector(request, event_id):
@@ -29,8 +26,7 @@ def add_sector(request, event_id):
             sector = form.save(commit=False)
             sector.user = request.user
             sector.save()
-
-            return view_event(request, event_id)
+            return render(request, 'user_home.html')
     else:
         form = SectorForm(event_id)
     return render(request, 'place_reservation.html', {'form': form})
