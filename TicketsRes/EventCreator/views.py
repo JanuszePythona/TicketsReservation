@@ -60,3 +60,13 @@ def cancel_event(request, event_id):
 
     event.delete()
     return render(request, 'user_home.html')
+
+
+def edit_event(request, event_id):
+    event = Event.objects.get(id=event_id)
+    form = EventForm(request.POST or None, instance=event)
+    if form.is_valid():
+        form.save()
+        return view_event(request, event_id)
+    return render(request, 'edit_event.html', {'form': form})
+

@@ -15,7 +15,7 @@
                   <a class="nav-link" href="{% url 'add_sector' event_id=event.id %}">Add sectors</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Edit</a>
+                  <a class="nav-link" href="{% url 'edit_event' event_id=event.id %}">Edit</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'confirm_cancel' event_id=event.id %}">Cancel</a>
