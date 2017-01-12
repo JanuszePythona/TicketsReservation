@@ -18,7 +18,7 @@
                   <a class="nav-link" href="#">Edit</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Cancel</a>
+                  <a class="nav-link" href="{% url 'confirm_cancel' event_id=event.id %}">Cancel</a>
                 </li>
               </ul>
             </nav>
@@ -31,6 +31,8 @@
         <p class="lead">{{ event.description }}</p>
            {% if  sectors %}
                 <p><a class="btn btn-lg btn-success" href="{% url 'place_reservation' event_id=event.id %}">Reservation</a></p>
+           {% else %}
+                <p>Registration is not possible at the moment</p>
            {% endif %}
       </div>
 

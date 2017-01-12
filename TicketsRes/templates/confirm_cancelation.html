@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Place reservation{% endblock %}
+
+{% block headline %}
+    <h2 class="form-signin-heading">Cancel event</h2>
+{% endblock %}
+{% block buttons %}{% endblock %}
+{% block content %}
+    <p>Are you sure you want to cancel the event? Emails will be sent to all participants</p>
+    <p><a class="btn btn-lg btn-success" href="{% url 'cancel_event' event_id=event.id %}">Cancel</a></p>
+{% endblock %}
