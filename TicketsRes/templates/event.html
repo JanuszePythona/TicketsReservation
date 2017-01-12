@@ -2,15 +2,14 @@
 
 {% block title %}Tickets Reservation{% endblock %}
 {% block buttons %}{% endblock %}
-{% block headline %}<h1>{{ activity.name }}</h1>{% endblock %}
+{% block headline %}<h1>{{ event.name }}</h1>{% endblock %}
 
 {% block content %}
 
-    <p>{{ activity.address }}</p>
-    <p><a target="_blank"  href="{{ activity.website }}">WEBSITE</a></p>
-    <p>{{ activity.description }}</p>
-    <p><a class="btn btn-lg btn-primary" href="{% url 'add_sector' event_id=activity.id %}">Add sectors</a></p>
-    <p> <img src="{{ activity.img_url }}" class="img-responsive" alt="Tickets"></p>
+    <p>{{ event.address }}</p>
+    <p><a target="_blank" href="{{ event.website }}">WEBSITE</a></p>
+    <p>{{ event.description }}</p>
+    <p><img src="{{ event.img_url }}" class="img-responsive" alt="Tickets"></p>
 
      <div>
          {% for sector in sectors %}
@@ -21,10 +20,12 @@
         {% endfor %}
     </div>
 
-        {% if sectors %}
-            <div>
-                <a class="btn btn-lg btn-primary" href="{% url 'place_reservation' event_id=activity.id %}">Reservation</a>
-            </div>
-        {% endif %}
+    {% if user.is_authenticated and user.id == event.user_id %}
+        <p><a class="btn btn-lg btn-primary" href="{% url 'add_sector' event_id=event.id %}">Add sectors</a></p>
+    {% elif sectors %}
+        <div>
+            <a class="btn btn-lg btn-primary" href="{% url 'place_reservation' event_id=event.id %}">Reservation</a>
+        </div>
+    {% endif %}
 
 {% endblock %}

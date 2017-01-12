@@ -5,8 +5,8 @@
 {% block content %}
     <h1>Events</h1>
     <ul>
-        {% for activity in activities %}
-            <li><a href="{% url 'view_event' event_id=activity.id %}">{{ activity.name}}</a> | {{ activity.address }}</li>
+        {% for event in events %}
+            <li><a href="{% url 'view_event' event_id=event.id %}">{{ event.name }}</a> | {{ event.address }}</li>
             {% empty %}
             <li>No event now.</li>
         {% endfor %}
