@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from TicketsReservation.views import view_event
+from TicketsReservation.views import view_event
 from forms import EventForm
 from forms import SectorForm
 
@@ -33,4 +34,4 @@ def add_sector(request, event_id):
             return view_event(request, event_id)
     else:
         form = SectorForm(event_id)
-    return render(request, 'place_reservation.html', {'form': form})
+    return render(request, 'add_sector.html', {'form': form})

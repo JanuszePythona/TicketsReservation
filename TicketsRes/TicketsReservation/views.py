@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
@@ -42,7 +41,7 @@ def place_reservation(request, event_id):
             mail.attach_file(ticket.qrcode.url)
             mail.send()
 
-            return render(request, 'user_home.html')
+            return render(request, 'success_res.html')
     else:
         form = TicketForm(event_id)
     return render(request, 'place_reservation.html', {'form': form})

@@ -3,13 +3,13 @@
 {% block title %}Place reservation{% endblock %}
 
  {% block headline %}
-        <h2 class="form-signin-heading">Place reservation</h2>
+        <h2 class="form-signin-heading">Place reservations</h2>
     {% endblock %}
 {% block buttons %}{% endblock %}
 {% block content %}
   <form method="post">
     {% csrf_token %}
       {{ form.as_p }}
-      <div></dib><button class="btn btn-lg btn-primary" type="submit">Place order</button></div>
+      <div></dib><button class="btn btn-lg btn-primary" type="submit">Place orders</button></div>
   </form>
 {% endblock %}
