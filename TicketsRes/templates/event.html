@@ -2,31 +2,65 @@
 
 {% block title %}Tickets Reservation{% endblock %}
 {% block buttons %}{% endblock %}
-{% block headline %}<h1>{{ event.name }}</h1>{% endblock %}
+{% block headline %}{% endblock %}
 
 {% block content %}
 
-    <p>{{ event.address }}</p>
-    <p><a target="_blank" href="{{ event.website }}">WEBSITE</a></p>
-    <p>{{ event.description }}</p>
-    <p><img src="{{ event.img_url }}" class="img-responsive" alt="Tickets"></p>
+    <div class="container">
+      <div class="header clearfix">
+          {% if user.is_authenticated and user.id == event.user_id %}
+              <nav>
+              <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'add_sector' event_id=event.id %}">Add sectors</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Edit</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Cancel</a>
+                </li>
+              </ul>
+            </nav>
+          {% endif %}
+        <h3 class="text-muted">Event card</h3>
+      </div>
 
-     <div>
-         {% for sector in sectors %}
-            <li>{{ sector.name}}</li>
+      <div class="jumbotron">
+        <h1 class="display-3">{{ event.name }}</h1>
+        <p class="lead">{{ event.description }}</p>
+           {% if  sectors %}
+                <p><a class="btn btn-lg btn-success" href="{% url 'place_reservation' event_id=event.id %}">Reservation</a></p>
+           {% endif %}
+      </div>
 
-            {% empty %}
-                <div>No sectors specified - registration is not possible at the moment</div>
-        {% endfor %}
-    </div>
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Sectors and seats distribution</h4>
+          <p><img src="{{ event.img_url }}" class="img-responsive" alt="Tickets"></p>
 
-    {% if user.is_authenticated and user.id == event.user_id %}
-        <p><a class="btn btn-lg btn-primary" href="{% url 'add_sector' event_id=event.id %}">Add sectors</a></p>
-    {% endif %}
-    {% if  sectors %}
-        <div>
-            <a class="btn btn-lg btn-primary" href="{% url 'place_reservation' event_id=event.id %}">Reservation</a>
+
+          <h4>Address</h4>
+          <p>{{ event.name }}</p>
+
+          <h4>Website</h4>
+          <p><a target="_blank" href="{{ event.website }}">WEBSITE</a></p>
+
+            <h4>Available sectors</h4>
+              <p>
+                {% for sector in sectors %}
+                <li>{{ sector.name}}</li>
+
+                {% empty %}
+                    <div>No sectors specified - registration is not possible at the moment</div>
+                {% endfor %}
+              </p>
         </div>
-    {% endif %}
+
+        <div class="col-lg-6">
+          <h4>Date</h4>
+          <p>{{ event.date }}</p>
+        </div>
+      </div>
 
 {% endblock %}
