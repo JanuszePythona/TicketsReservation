@@ -30,9 +30,11 @@
             </a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="{% url 'about' %}">About us</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    {% block active%}
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="{% url 'about' %}">About us</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                    {% endblock%}
                 </ul>
 
                 {% block navbuttons %}
