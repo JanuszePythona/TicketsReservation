@@ -19,16 +19,16 @@ class Tickets(models.Model):
     guest_email = models.CharField(max_length=32)
     qrcode = models.ImageField(upload_to='qrcode', blank=True, null=True)
 
-    def get_absolute_url(self):
-        return reverse('view_event', args=[str(self.id)])
-
     def get_reservation_info(self):
-        event_details = 'Event details:\n' + ' - name: ' + str(self.event.name) + '\n - address: ' + str(self.event.address) + '\n - description: ' + str(self.event.description) + '\n - date: ' + str(self.event.date)
+        event_details = 'Event details:\n' + ' - name: ' + str(self.event.name) + '\n - address: ' \
+                        + str(self.event.address) + '\n - description: ' + str(self.event.description) \
+                        + '\n - date: ' + str(self.event.date)
         sector_details = '\n\nSector: ' + str(self.sector.name)
-        quest_details = '\n\nPersonal info:\n' + ' - name: ' + str(self.guest_name) + ' ' + str(self.guest_surname) + '\n - email: ' + str(self.guest_email)
+        quest_details = '\n\nPersonal info:\n' + ' - name: ' + str(self.guest_name) + ' ' + str(self.guest_surname) \
+                        + '\n - email: ' + str(self.guest_email)
         return event_details + sector_details + quest_details
 
-    def generate_qrcode(self):
+    def generate_qrcode(self): # pragma: no cover
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -37,12 +37,9 @@ class Tickets(models.Model):
         )
         qr.add_data('www.google.com')
         qr.make(fit=True)
-
         img = qr.make_image()
-
         buffer = StringIO.StringIO()
         img.save(buffer)
         filename = 'events-%s.png' % (self.id)
-        filebuffer = InMemoryUploadedFile(
-            buffer, None, filename, 'image/png', buffer.len, None)
+        filebuffer = InMemoryUploadedFile(buffer, None, filename, 'image/png', buffer.len, None)
         self.qrcode.save(filename, filebuffer)

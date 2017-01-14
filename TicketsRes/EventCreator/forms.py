@@ -1,6 +1,5 @@
 from django.forms import ModelForm
 from django import forms
-
 from models import Event
 from models import Sector
 

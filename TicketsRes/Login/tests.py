@@ -12,8 +12,10 @@ class LoginTestCase(TestCase):
         self.user = Usr.objects.create_user(username='andrew', email='andrzej@andrzej.pl', password='supertajnehasuo')
         self.role1 = Role.objects.create(name='User')
         self.role2 = Role.objects.create(name='Admin')
-        self.user1 = User.objects.create(name='Jurand', surname='zeSpychowa', email='jurand@o.pl',phone_number='12343', role=self.role1)
-        self.user2 = User.objects.create(name='Zbyszko', surname='zBogdanca', email='zbyszko@o.pl', phone_number='1233', role=self.role1)
+        self.user1 = User.objects.create(name='Jurand', surname='zeSpychowa', email='jurand@o.pl',phone_number='12343',
+                                         role=self.role1)
+        self.user2 = User.objects.create(name='Zbyszko', surname='zBogdanca', email='zbyszko@o.pl', phone_number='1233',
+                                         role=self.role1)
 
     def test_userdata(self):
         self.assertEquals(self.user1.name, 'Jurand')
