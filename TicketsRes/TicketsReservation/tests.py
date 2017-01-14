@@ -1,10 +1,9 @@
-from django.contrib.auth.models import User
 from models import Sector, Event
-from django.test import TestCase
-from django.core.urlresolvers import reverse
-from django.core.urlresolvers import resolve
+from django.test import TestCase, RequestFactory
+from django.core.urlresolvers import reverse, resolve
 from .forms import *
-
+from .views import *
+from django.contrib.auth.models import User as Usr
 
 class TicketsReservationTestCase(TestCase):
     def setUp(self):
@@ -19,6 +18,8 @@ class TicketsReservationTestCase(TestCase):
                                               guest_name='Andrew', guest_surname='Golara', guest_email='golara@o.pl')
         self.ticket2 = Tickets.objects.create(event=self.event1, sector=self.sector1, column=4, row=8,
                                               guest_name='Andrzej', guest_surname='Golota', guest_email='golota@o.pl')
+        self.factory = RequestFactory()
+        self.user = Usr.objects.create_user(username='andrew', email='andrzej@andrzej.pl', password='supertajnehasuo')
 
     def test_ticket_data(self):
         self.assertEquals(self.ticket1.event, self.event1)
@@ -50,6 +51,10 @@ class TicketsReservationTestCase(TestCase):
         self.assertEqual(url, '/contact')
         url = reverse('user_home')
         self.assertEqual(url, '/user_home/')
+        url = reverse('view_event', kwargs={'event_id': 1})
+        self.assertEqual(url, '/event/1')
+        url = reverse('place_reservation', kwargs={'event_id': 1})
+        self.assertEqual(url, '/place_reservation/1')
 
     def test_url_connect_to_view(self):
         resolver = resolve('/')
@@ -60,6 +65,31 @@ class TicketsReservationTestCase(TestCase):
         self.assertEqual(resolver.view_name, 'contact')
         resolver = resolve('/user_home/')
         self.assertEqual(resolver.view_name, 'user_home')
+        resolver = resolve('/event/1')
+        self.assertEqual(resolver.view_name, 'view_event')
+        resolver = resolve('/place_reservation/1')
+        self.assertEqual(resolver.view_name, 'place_reservation')
+
+    def test_login_view_loads(self):
+        self.client.login(username='andrew', password='supertajnehasuo')
+        response_index = self.client.get('/')
+        self.assertEqual(response_index.status_code, 200)
+        self.assertTemplateUsed(response_index, 'index.html')
+        response_about = self.client.get('/about')
+        self.assertEqual(response_about.status_code, 200)
+        self.assertTemplateUsed(response_about, 'about.html')
+        response_contact = self.client.get('/contact')
+        self.assertEqual(response_contact.status_code, 200)
+        self.assertTemplateUsed(response_contact, 'contact.html')
+        response_user_home = self.client.get('/user_home/')
+        self.assertEqual(response_user_home.status_code, 200)
+        self.assertTemplateUsed(response_user_home, 'user_home.html')
+        response_view_event = self.client.get('/event/1')
+        self.assertEqual(response_view_event.status_code, 200)
+        self.assertTemplateUsed(response_view_event, 'event.html')
+        response_place_reservation = self.client.get('/place_reservation/1')
+        self.assertEqual(response_place_reservation.status_code, 200)
+        self.assertTemplateUsed(response_place_reservation, 'place_reservation.html')
 
     def test_TicketForm_valid(self):
         data = {'event': 1,
@@ -82,3 +112,47 @@ class TicketsReservationTestCase(TestCase):
                     'sector': 1}
             form = TicketForm(data=data, event_id=3)
             self.assertFalse(form.is_valid())
+
+    def test_index(self):
+        request = self.factory.get(reverse('index'))
+        response = index(request)
+        self.assertEqual(response.status_code, 200)
+
+    def test_about(self):
+        request = self.factory.get(reverse('about'))
+        response = about(request)
+        self.assertEqual(response.status_code, 200)
+
+    def test_contact(self):
+        request = self.factory.get(reverse('contact'))
+        response = contact(request)
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_event(self):
+        event_id = 1
+        request = self.factory.get(reverse('view_event',kwargs={'event_id': 1}))
+        response = view_event(request, event_id)
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_user_home(self):
+        request = self.factory.get(reverse('user_home'))
+        request.user = self.user
+        response = user_home(request)
+        self.assertEqual(response.status_code, 200)
+
+    def test_place_reservation_post(self):
+        data = {'event': 2,
+                'guest_name': "Andrew",
+                'guest_surname': "Golara",
+                'guest_email': "golara@o.pl",
+                'column': 4,
+                'row': 8,
+                'sector': 1}
+        request = self.factory.post(reverse('place_reservation', kwargs={'event_id': 2}), data)
+        response = place_reservation(request, 2)
+        self.assertEqual(response.status_code, 200)
+
+    def test_place_reservation_get(self):
+        request = self.factory.get(reverse('place_reservation', kwargs={'event_id': 2}))
+        response = place_reservation(request, 2)
+        self.assertEqual(response.status_code, 200)

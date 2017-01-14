@@ -10,6 +10,7 @@ from models import Event
 from TicketsReservation.models import Tickets
 from django.core.mail import EmailMessage
 
+
 @login_required
 def add_event(request):
     if request.method == 'POST':
@@ -50,14 +51,11 @@ def confirm_cancel(request, event_id):
 
 def cancel_event(request, event_id):
     event = Event.objects.get(id=event_id)
-
     tickets = Tickets.objects.filter(event_id = event_id)
-
     for ticket in tickets:
         content = 'We are sorry to inform that the event: ' + str(ticket.event.name) + ' was canceled.'
         mail = EmailMessage('Event canceled', content, 'janusze.pythona@gmail.com', [ticket.guest_email])
         mail.send()
-
     event.delete()
     return render(request, 'user_home.html')
 

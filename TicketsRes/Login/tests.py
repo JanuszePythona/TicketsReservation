@@ -1,8 +1,8 @@
-from django.test import TestCase, RequestFactory
+from django.contrib.auth.models import User
+from django.test import TestCase, RequestFactory, Client
 from Login.models import User,Role
-from django.core.urlresolvers import reverse
-from django.core.urlresolvers import resolve
-from views import register
+from django.core.urlresolvers import reverse, resolve
+from .views import *
 from django.contrib.auth.models import User as Usr
 
 
@@ -16,6 +16,7 @@ class LoginTestCase(TestCase):
                                          role=self.role1)
         self.user2 = User.objects.create(name='Zbyszko', surname='zBogdanca', email='zbyszko@o.pl', phone_number='1233',
                                          role=self.role1)
+        self.client = Client()
 
     def test_userdata(self):
         self.assertEquals(self.user1.name, 'Jurand')
@@ -60,7 +61,20 @@ class LoginTestCase(TestCase):
         self.assertEqual(resolver.view_name, 'logout')
 
     def test_login_view_loads(self):
-        response = self.client.get('/login/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'registration/login.html')
+        response_login = self.client.get('/login/')
+        self.assertEqual(response_login.status_code, 200)
+        self.assertTemplateUsed(response_login, 'registration/login.html')
+        response_logout = self.client.get('/logout/')
+        self.assertEqual(response_logout.status_code, 200)
+        self.assertTemplateUsed(response_logout, 'registration/logged_out.html')
+        response_register = self.client.get('/register/')
+        self.assertEqual(response_register.status_code, 200)
+        self.assertTemplateUsed(response_register, 'registration/registration_form.html')
 
+    def test_register(self):
+        data = {'username': "testowy_user",
+                'email': "testowy_user@o.pl",
+                'password': "kanapakrzeslolozko"}
+        request = self.factory.post(reverse('register'), data)
+        response = register(request)
+        self.assertEqual(response.status_code, 200)

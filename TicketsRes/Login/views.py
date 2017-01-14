@@ -8,7 +8,6 @@ def register(request):
         uf = UserCreationForm(request.POST, prefix='user')
         if uf.is_valid():
             uf.save()
-
             return render(request, 'registration/login.html')
     else:
         uf = UserCreationForm(prefix='user')

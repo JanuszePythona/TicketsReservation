@@ -4,10 +4,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from django.core.mail import EmailMessage
-
 from forms import TicketForm
-from models import Event
-from models import Sector
+from models import Event, Sector
 
 
 def index(request):
@@ -36,11 +34,9 @@ def place_reservation(request, event_id):
             ticket.user = request.user
             ticket.save()
             ticket.generate_qrcode()
-
             mail = EmailMessage('Event entry ticket', ticket.get_reservation_info(), 'janusze.pythona@gmail.com', [ticket.guest_email])
             mail.attach_file(ticket.qrcode.url)
             mail.send()
-
             return render(request, 'success_res.html')
     else:
         form = TicketForm(event_id)
