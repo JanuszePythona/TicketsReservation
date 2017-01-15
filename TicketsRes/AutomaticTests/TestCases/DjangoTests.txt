@@ -165,7 +165,6 @@ Add sector
 	Input Text	${xpath_price}	35,50
 	Timeout	${xpath_add_btn}
 	Click Element	${xpath_add_btn}
-	Sleep	10
 	Page Should Contain	Reservation
 	
 Place reservation
@@ -254,7 +253,7 @@ Add Modify Cancel Event and Sector Test
 	Start Browser
 	Login	${LOGIN}	${PASS}
 	Add event
-	Add sector
+	#Add sector
 	Edit event
 	Cancel event
 	Close Browser
