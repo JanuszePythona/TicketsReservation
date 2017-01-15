@@ -17,7 +17,7 @@ before_script:
 script: 
     - "cd TicketsRes;python manage.py test"
     - "coverage run manage.py test"
-    - "python manage.py"
+    - "python manage.py runserver"
     - "cd AutomaticTests;pybot --pythonpath autolib --outputdir log --consolemarkers on TestSets/DjangoTestsSet.txt"
     
 after_success:    
