@@ -5,7 +5,7 @@ Library	DateTime
 
 *** Variables ***
 ${Browser}	firefox
-${APP_Address}	http://127.0.0.1:8000/
+${APP_Address}	https://ticketsreservation.herokuapp.com/
 ${LOGIN}	mariano
 ${PASS}	italiano
 ${TIMEOUT}	60
@@ -166,7 +166,7 @@ Add sector
 	Timeout	${xpath_add_btn}
 	Click Element	${xpath_add_btn}
 	#Sleep	20
-	#Page Should Contain	Reservation
+	Page Should Contain	Reservation
 	
 Place reservation
 	${xpath_reservation_btn}=	Set Variable	//a[contains(., 'Reservation')]
