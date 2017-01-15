@@ -7,11 +7,9 @@ from django.db.models import Q
 
 
 class TicketForm(ModelForm):
-    event_tmp = 0
 
     def __init__(self, event_id, *args, **kwargs):
-        super(TicketForm, self).__init__(*args, **kwargs)  # populates the post
-        event_tmp = event_id
+        super(TicketForm, self).__init__(*args, **kwargs)
         self.fields['sector'].queryset = Sector.objects.filter(event=event_id)
         self.fields['event'].initial = event_id
         self.fields['event'].widget = forms.HiddenInput()
@@ -24,7 +22,6 @@ class TicketForm(ModelForm):
         row = self.cleaned_data.get('row')
         column = self.cleaned_data.get('column')
         sector = self.cleaned_data.get('sector')
-        event = self.cleaned_data.get('event')
 
         is_free = False
         try:
@@ -38,7 +35,7 @@ class TicketForm(ModelForm):
             is_free = True
 
         if row < 0 | column < 0:
-            raise forms.ValidationError('Incorrect row or column')
+            raise forms.ValidationError('Invalid row or column')
         elif not is_free:
             raise forms.ValidationError('Ticket was booked by someone else')
 
