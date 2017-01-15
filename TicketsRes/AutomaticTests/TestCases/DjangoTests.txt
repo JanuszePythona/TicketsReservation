@@ -17,6 +17,8 @@ Start Browser
 	Set Selenium Timeout	60	
 	Open Browser	${APP_Address}	${Browser}
 	Go To	${APP_Address}
+	Set Window Position	0	0
+	Set Window Size	1920	1080
 	Maximize Browser Window
 		
 Finish Test Set
