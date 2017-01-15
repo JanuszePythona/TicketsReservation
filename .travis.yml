@@ -8,14 +8,11 @@ addons:
   
 install:     
     - "pip install -r requirements.txt"
-
-before script:
-    export PYTHONPATH=$PYTHONPATH:$(pwd)
-    
+  
 script: 
     - "cd TicketsRes;python manage.py test"
     - "coverage run manage.py test"
-    - "cd AutomaticTests;pybot --pythonpath lib --outputdir log --consolemarkers on TestSets/DjangoTestsSet.txt"
+    - "cd AutomaticTests;pybot --pythonpath autolib --outputdir log --consolemarkers on TestSets/DjangoTestsSet.txt"
     
 after_success:    
     - coveralls
