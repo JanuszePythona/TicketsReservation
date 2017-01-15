@@ -1,0 +1,13 @@
+[run]
+branch = True
+source=.
+omit =
+    *migrations*
+	*AutomaticTests*
+    *__init__.py*
+    *settings.py*
+    *wsgi.py*
+    *admin.py*
+	*tests.py*
+	*manage.py*
+	*apps.py* 

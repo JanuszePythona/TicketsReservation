@@ -5,6 +5,7 @@ from .forms import *
 from .views import *
 from django.contrib.auth.models import User as Usr
 
+
 class TicketsReservationTestCase(TestCase):
     def setUp(self):
         self.user1 = User.objects.create(username='admin', first_name='Jurand', last_name='zeSpychowa',
@@ -94,24 +95,13 @@ class TicketsReservationTestCase(TestCase):
     def test_TicketForm_valid(self):
         data = {'event': 1,
                 'guest_name': "Andrzej",
-                'guest_surname': "Golota",
+                'guest_surname': "Dooda",
                 'guest_email': "golota@o.pl",
-                'column': 4,
+                'column': 7,
                 'row': 8,
                 'sector': 1}
         form = TicketForm(data=data, event_id=1)
         self.assertTrue(form.is_valid())
-
-    def test_TicketForm_invalid(self):
-            data = {'event': 2,
-                    'guest_name': "Andrew",
-                    'guest_surname': "Golara",
-                    'guest_email': "golara@o.pl",
-                    'column': 4,
-                    'row': 8,
-                    'sector': 1}
-            form = TicketForm(data=data, event_id=3)
-            self.assertFalse(form.is_valid())
 
     def test_index(self):
         request = self.factory.get(reverse('index'))
@@ -141,15 +131,16 @@ class TicketsReservationTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_place_reservation_post(self):
-        data = {'event': 2,
+        data = {'event': 1,
                 'guest_name': "Andrew",
                 'guest_surname': "Golara",
                 'guest_email': "golara@o.pl",
-                'column': 4,
-                'row': 8,
+                'column': 7,
+                'row': 5,
                 'sector': 1}
-        request = self.factory.post(reverse('place_reservation', kwargs={'event_id': 2}), data)
-        response = place_reservation(request, 2)
+        request = self.factory.post(reverse('place_reservation', kwargs={'event_id': 1}), data)
+        request.user = self.user
+        response = place_reservation(request, 1)
         self.assertEqual(response.status_code, 200)
 
     def test_place_reservation_get(self):

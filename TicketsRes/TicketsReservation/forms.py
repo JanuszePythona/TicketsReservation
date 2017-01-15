@@ -1,8 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 
-from models import Tickets
-from models import Sector
+from models import Tickets, Sector
 from django.db.models import Q
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
