@@ -4,6 +4,8 @@ from django import forms
 from models import Tickets
 from models import Sector
 from django.db.models import Q
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 
 class TicketForm(ModelForm):
@@ -22,7 +24,8 @@ class TicketForm(ModelForm):
         row = self.cleaned_data.get('row')
         column = self.cleaned_data.get('column')
         sector = self.cleaned_data.get('sector')
-
+        email = self.cleaned_data.get('guest_email')
+        valid_email = True
         is_free = False
         try:
             ticket = Tickets.objects.get(
@@ -31,11 +34,19 @@ class TicketForm(ModelForm):
                 & Q(event=self.cleaned_data['event'])
                 & Q(sector=self.cleaned_data['sector'])
             )
+
         except Tickets.DoesNotExist:
             is_free = True
+
+        try:
+            validate_email(email)
+        except ValidationError:
+            valid_email = False
 
         if row < 0 | column < 0:
             raise forms.ValidationError('Invalid row or column')
         elif not is_free:
             raise forms.ValidationError('Ticket was booked by someone else')
+        elif not valid_email:
+            raise forms.ValidationError('Enter a valid email address')
 

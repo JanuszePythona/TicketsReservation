@@ -5,6 +5,7 @@ import qrcode
 
 from EventCreator.models import Sector, Event
 from django.core.files.uploadedfile import InMemoryUploadedFile
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.core.urlresolvers import reverse
 from django.db import models
 
@@ -12,8 +13,8 @@ from django.db import models
 class Tickets(models.Model):
     event = models.ForeignKey(Event)
     sector = models.ForeignKey(Sector)
-    column = models.IntegerField()
-    row = models.IntegerField()
+    column = models.IntegerField(validators=[MinValueValidator(0)])
+    row = models.IntegerField(validators=[MinValueValidator(0)])
     guest_name = models.CharField(max_length=32)
     guest_surname = models.CharField(max_length=32)
     guest_email = models.CharField(max_length=32)
