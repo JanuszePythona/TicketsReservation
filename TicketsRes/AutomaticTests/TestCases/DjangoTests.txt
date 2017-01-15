@@ -5,7 +5,7 @@ Library	DateTime
 
 *** Variables ***
 ${Browser}	firefox
-${APP_Address}	https://ticketsreservation.herokuapp.com/
+${APP_Address}	http://127.0.0.1:8000/
 ${LOGIN}	mariano
 ${PASS}	italiano
 ${TIMEOUT}	60
@@ -17,8 +17,6 @@ Start Browser
 	Set Selenium Timeout	60	
 	Open Browser	${APP_Address}	${Browser}
 	Go To	${APP_Address}
-	Set Window Position	0	0
-	Set Window Size	1920	1080
 	Maximize Browser Window
 		
 Finish Test Set
