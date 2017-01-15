@@ -22,8 +22,8 @@ Check forms for unregistered user
 Register and Login
 	Register and Login Test
 
-Add and Modfify and Cancel event and sector
-	Add Modify Cancel Event and Sector Test
+#Add and Modfify and Cancel event and sector
+#	Add Modify Cancel Event and Sector Test
 
-Place reservation	
-	Place reservation Test
+#Place reservation	
+#	Place reservation Test
