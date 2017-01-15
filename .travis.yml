@@ -12,7 +12,7 @@ install:
 script: 
     - "cd TicketsRes;python manage.py test"
     - "coverage run manage.py test"
-    - "cd TicketsRes/AutomaticTests;pybot --pythonpath lib/ --outputdir log --consolemarkers on TestSets/DjangoTestsSet.txt"
+    - "cd AutomaticTests;pybot --pythonpath lib/ --outputdir log --consolemarkers on TestSets/DjangoTestsSet.txt"
     
 after_success:    
     - coveralls
