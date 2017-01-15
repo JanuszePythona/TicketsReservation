@@ -1,6 +1,6 @@
 *** Settings ***
 Library	Selenium2Library
-library	lib_tests.LibTests
+#library	lib_tests.LibTests
 Library	DateTime
 
 *** Variables ***
@@ -8,7 +8,7 @@ ${Browser}	ff
 ${APP_Address}	http://localhost:8000/
 ${LOGIN}	mariano
 ${PASS}	italiano
-${TIMEOUT}	60
+${#Timeout}	60
 
 *** Keywords ***
 
@@ -23,43 +23,43 @@ Start Browser
 Finish Test Set
 	Close All Browsers
 	
-Timeout
+#Timeout
 	[Arguments]	${Locator}
-	Wait For Timeout	${Locator}	${TIMEOUT}
+	Wait For Timeout	${Locator}	${#Timeout}
 	
 Click Login	
 	${xpath_login}=	Set Variable	//li/a[contains(., 'Login')]
-	Timeout	${xpath_login}
+	#Timeout	${xpath_login}
 	Click Element	${xpath_login}
 
 Click Logout
 	${xpath_logout}=	Set Variable	//li/a[contains(., 'Logout')]
-	Timeout	${xpath_logout}
+	#Timeout	${xpath_logout}
 	Click Element	${xpath_logout}
 	
 Click Register
 	${xpath_register}=	Set Variable	//li/a[contains(., 'Sign up')]
-	Timeout	${xpath_register}
+	#Timeout	${xpath_register}
 	Click Element	${xpath_register}
 
 Click Add event
 	${xpath_add_event}=	Set Variable	//li/a[contains(., 'Add Event')]
-	Timeout	${xpath_add_event}
+	#Timeout	${xpath_add_event}
 	Click Element	${xpath_add_event}
 
 Click Home
 	${xpath_home}=	Set Variable	//li/a[contains(., 'Home')]
-	Timeout	${xpath_home}
+	#Timeout	${xpath_home}
 	Click Element	${xpath_home}	
 	
 Click About
 	${xpath_about}=	Set Variable	//li/a[contains(., 'About us')]
-	Timeout	${xpath_about}
+	#Timeout	${xpath_about}
 	Click Element	${xpath_about}	
 
 Click Contact
 	${xpath_contact}=	Set Variable	//li/a[contains(., 'Contact')]
-	Timeout	${xpath_contact}
+	#Timeout	${xpath_contact}
 	Click Element	${xpath_contact}	
 
 	
@@ -70,11 +70,11 @@ Login
 	${xpath_password_field}=	Set Variable	//input[contains(@id,'inputPassword')]
 	${xpath_signin}=	Set Variable	//button[contains(., 'Sign in')]
 	Click Login
-	Timeout	${xpath_login_field}
+	#Timeout	${xpath_login_field}
 	Input Text	${xpath_login_field}	${LOGIN}
-	Timeout	${xpath_password_field}
+	#Timeout	${xpath_password_field}
 	Input Text	${xpath_password_field}	${PASS}
-	Timeout	${xpath_signin}
+	#Timeout	${xpath_signin}
 	Click Element	${xpath_signin}
 	Page Should Contain	My events
 	
@@ -85,13 +85,13 @@ Register
 	${xpath_password_confirm_field}=	Set Variable	//input[contains(@id,'id_user-password2')]
 	${xpath_register}=	Set Variable	//button[contains(., 'Register')]
 	Click Register
-	Timeout	${xpath_username_field}
+	#Timeout	${xpath_username_field}
 	Input Text	${xpath_username_field}	${username}
-	Timeout	${xpath_password_field}
+	#Timeout	${xpath_password_field}
 	Input Text	${xpath_password_field}	${password}
-	Timeout	${xpath_password_confirm_field}
+	#Timeout	${xpath_password_confirm_field}
 	Input Text	${xpath_password_confirm_field}	${password}
-	Timeout	${xpath_register}
+	#Timeout	${xpath_register}
 	Click Element	${xpath_register}
 	Page Should Contain	Please sign in
 	
@@ -105,17 +105,17 @@ Add event
 	${date}=	Get Current Date	result_format=timestamp
 	${date}= 	Convert Date	${date}	epoch	exclude_millis=true
 	Click Add event
-	Timeout	${xpath_name}
+	#Timeout	${xpath_name}
 	Input Text	${xpath_name}	test_event ${date}
-	Timeout	${xpath_address}
+	#Timeout	${xpath_address}
 	Input Text	${xpath_address}	jakisadres
-	Timeout	${xpath_desc}
+	#Timeout	${xpath_desc}
 	Input Text	${xpath_desc}	super event janie
-	Timeout	${xpath_web}
+	#Timeout	${xpath_web}
 	Input Text	${xpath_web}	http://www.testevent.com.pl
-	Timeout	${xpath_url}
+	#Timeout	${xpath_url}
 	Input Text	${xpath_url}	http://www.testevent.com.pl/img.jpg
-	Timeout	${xpath_add}
+	#Timeout	${xpath_add}
 	Click Element	${xpath_add}
 	Page Should Contain	Registration is not possible at the moment
 	
@@ -126,22 +126,22 @@ Edit event
 	${xpath_save}=	Set Variable	//button[contains(., 'Save')]
 	${date}=	Get Current Date	result_format=timestamp
 	${date}= 	Convert Date	${date}	epoch	exclude_millis=true
-	Timeout	${xpath_edit_btn}
+	#Timeout	${xpath_edit_btn}
 	Click Element	${xpath_edit_btn}
-	Timeout	${xpath_name}
+	#Timeout	${xpath_name}
 	Input Text	${xpath_name}	mod_test_event ${date}
-	Timeout	${xpath_desc}
+	#Timeout	${xpath_desc}
 	Input Text	${xpath_desc}	mod_description
-	Timeout	${xpath_save}
+	#Timeout	${xpath_save}
 	Click Element	${xpath_save}
 	Page Should Contain	mod_description
 	
 Cancel event
 	${xpath_cancel_btn}=	Set Variable	//a[contains(., 'Cancel')]
-	Timeout	${xpath_cancel_btn}
+	#Timeout	${xpath_cancel_btn}
 	Click Element	${xpath_cancel_btn}
 	Page Should Contain	Cancel event
-	Timeout	${xpath_cancel_btn}
+	#Timeout	${xpath_cancel_btn}
 	Click Element	${xpath_cancel_btn}
 	Page Should Contain	My events
 	
@@ -152,17 +152,17 @@ Add sector
 	${xpath_mrow}=	Set Variable	//input[contains(@id,'id_max_row')]
 	${xpath_price}=	Set Variable	//input[contains(@id,'id_price')]
 	${xpath_add_btn}=	Set Variable	//button[contains(., 'Add')]
-	Timeout	${xpath_add_sector_btn}
+	#Timeout	${xpath_add_sector_btn}
 	Click Element	${xpath_add_sector_btn}
-	Timeout	${xpath_name}
+	#Timeout	${xpath_name}
 	Input Text	${xpath_name}	sektor1
-	Timeout	${xpath_mcolumn}
+	#Timeout	${xpath_mcolumn}
 	Input Text	${xpath_mcolumn}	10
-	Timeout	${xpath_mrow}
+	#Timeout	${xpath_mrow}
 	Input Text	${xpath_mrow}	20
-	Timeout	${xpath_price}
+	#Timeout	${xpath_price}
 	Input Text	${xpath_price}	35,50
-	Timeout	${xpath_add_btn}
+	#Timeout	${xpath_add_btn}
 	Click Element	${xpath_add_btn}
 	Page Should Contain	Reservation
 	
@@ -175,21 +175,21 @@ Place reservation
 	${xpath_row}=	Set Variable	//input[contains(@id,'id_row')]
 	${xpath_sector}=	Set Variable	//select[contains(@id,'id_sector')]
 	${xpath_order_btn}=	Set Variable	//button[contains(., 'Place orders')]
-	Timeout	${xpath_reservation_btn}
+	#Timeout	${xpath_reservation_btn}
 	Click Element	${xpath_reservation_btn}
-	Timeout	${xpath_gname}
+	#Timeout	${xpath_gname}
 	Input Text	${xpath_gname}	Jendrzej
-	Timeout	${xpath_gsurname}
+	#Timeout	${xpath_gsurname}
 	Input Text	${xpath_gsurname}	Dooda
-	Timeout	${xpath_gmail}
+	#Timeout	${xpath_gmail}
 	Input Text	${xpath_gmail}	jendrek@mailg.pp
-	Timeout	${xpath_column}
+	#Timeout	${xpath_column}
 	Input Text	${xpath_column}	10
-	Timeout	${xpath_row}
+	#Timeout	${xpath_row}
 	Input Text	${xpath_row}	20
-	Timeout	${xpath_sector}
+	#Timeout	${xpath_sector}
 	Select From List By Index	${xpath_sector}	1
-	Timeout	${xpath_order_btn}
+	#Timeout	${xpath_order_btn}
 	Click Element	${xpath_order_btn}
 	Page Should Contain	Place reservation - SUCCESS
 	
@@ -217,7 +217,7 @@ Check Forms Authorized Test
 	Page Should Contain	Add Event
 	Click Contact
 	Page Should Contain	send email	
-	Timeout	${xpath_uhome}
+	#Timeout	${xpath_uhome}
 	Click Element	${xpath_uhome}
 	Click Logout
 	Page Should Contain	Logged out
