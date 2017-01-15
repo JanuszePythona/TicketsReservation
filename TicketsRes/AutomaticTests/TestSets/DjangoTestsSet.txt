@@ -1,0 +1,29 @@
+*** Settings ***
+Library	Selenium2Library
+Resource	../TestCases/DjangoTests.txt
+
+Suite Teardown	Finish Test Set
+
+
+*** Test Cases ***
+
+Login
+	Login Test
+
+Logout
+	Logout Test
+
+Check forms for logged user	
+	Check Forms Authorized Test
+	
+Check forms for unregistered user
+	Check Forms Unauthorized Test
+	
+Register and Login
+	Register and Login Test
+
+Add and Modfify and Cancel event and sector
+	Add Modify Cancel Event and Sector Test
+
+Place reservation	
+	Place reservation Test
