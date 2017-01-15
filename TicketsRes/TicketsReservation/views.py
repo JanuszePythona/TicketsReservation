@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.core.mail import EmailMessage
 from forms import TicketForm
-from models import Event, Sector
+from models import Event, Sector, Tickets
 
 
 def index(request):
@@ -27,6 +27,7 @@ def view_event(request, event_id):
 
 
 def place_reservation(request, event_id):
+    tickets = Tickets.objects.filter(event_id = event_id)
     if request.method == 'POST':
         form = TicketForm(event_id, request.POST)
         if form.is_valid():
@@ -40,7 +41,7 @@ def place_reservation(request, event_id):
             return render(request, 'success_res.html')
     else:
         form = TicketForm(event_id)
-    return render(request, 'place_reservation.html', {'form': form})
+    return render(request, 'place_reservation.html', {'form': form, 'tickets': tickets})
 
 
 def about(request):
