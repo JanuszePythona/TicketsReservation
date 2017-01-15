@@ -222,6 +222,7 @@ Check Forms Authorized Test
 	Click Element	${xpath_uhome}
 	Click Logout
 	Page Should Contain	Logged out
+	Close Browser
 	
 Check Forms Unauthorized Test
 	Start Browser
@@ -235,8 +236,8 @@ Check Forms Unauthorized Test
 	Page Should Contain	Register
 	Click Home
 	Page Should Contain	Tickets Reservation System
-	
-	
+	Close Browser
+		
 Register and Login Test	
 	${date}=	Get Current Date	result_format=timestamp
 	${date}= 	Convert Date	${date}	epoch	exclude_millis=true
