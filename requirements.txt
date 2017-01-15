@@ -1,7 +1,8 @@
 Django==1.10.3
 qrcode==5.1
 Pillow
-robotframework==3.0.1
-robotframework-selenium2library==1.8.0
+robotframework
+robotframework-selenium2library
 selenium==2.53.6
 coveralls
+Gecko

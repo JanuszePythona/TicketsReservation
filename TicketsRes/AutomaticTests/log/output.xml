@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170115 04:42:28.865" generator="Robot 3.0.1 (Python 2.7.12 on win32)">
+<suite source="D:\Dokumenty\Studia\9 semestr\PITE\TicketsReservation\TicketsRes\AutomaticTests\TestSets\DjangoTestsSet.txt" id="s1" name="DjangoTestsSet">
+<test id="s1-t1" name="Login">
+<kw name="Login Test" library="DjangoTests">
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:42:29.020" starttime="20170115 04:42:29.020"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="Selenium2Library">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>60</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:42:29.020" starttime="20170115 04:42:29.020"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:29.021" level="INFO">Opening browser 'ff' to base url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 04:42:31.894" starttime="20170115 04:42:29.020"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:31.895" level="INFO">Opening url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 04:42:32.307" starttime="20170115 04:42:31.894"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170115 04:42:32.570" starttime="20170115 04:42:32.307"></status>
+</kw>
+<kw name="Page Should Not Contain" library="Selenium2Library">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>Service Temporarily Unavailable</arg>
+</arguments>
+<msg timestamp="20170115 04:42:33.216" level="INFO">Current page does not contain text 'Service Temporarily Unavailable'.</msg>
+<status status="PASS" endtime="20170115 04:42:33.216" starttime="20170115 04:42:32.570"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:33.217" starttime="20170115 04:42:29.020"></status>
+</kw>
+<kw name="Login" library="DjangoTests">
+<arguments>
+<arg>${LOGIN}</arg>
+<arg>${PASS}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//input[contains(@id,'inputEmail')]</arg>
+</arguments>
+<assign>
+<var>${xpath_login_field}</var>
+</assign>
+<msg timestamp="20170115 04:42:33.219" level="INFO">${xpath_login_field} = //input[contains(@id,'inputEmail')]</msg>
+<status status="PASS" endtime="20170115 04:42:33.219" starttime="20170115 04:42:33.218"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//input[contains(@id,'inputPassword')]</arg>
+</arguments>
+<assign>
+<var>${xpath_password_field}</var>
+</assign>
+<msg timestamp="20170115 04:42:33.221" level="INFO">${xpath_password_field} = //input[contains(@id,'inputPassword')]</msg>
+<status status="PASS" endtime="20170115 04:42:33.221" starttime="20170115 04:42:33.220"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//button[contains(., 'Sign in')]</arg>
+</arguments>
+<assign>
+<var>${xpath_signin}</var>
+</assign>
+<msg timestamp="20170115 04:42:33.222" level="INFO">${xpath_signin} = //button[contains(., 'Sign in')]</msg>
+<status status="PASS" endtime="20170115 04:42:33.223" starttime="20170115 04:42:33.221"></status>
+</kw>
+<kw name="Click Login" library="DjangoTests">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//li/a[contains(., 'Login')]</arg>
+</arguments>
+<assign>
+<var>${xpath_login}</var>
+</assign>
+<msg timestamp="20170115 04:42:33.225" level="INFO">${xpath_login} = //li/a[contains(., 'Login')]</msg>
+<status status="PASS" endtime="20170115 04:42:33.225" starttime="20170115 04:42:33.224"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_login}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:33.228" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 04:42:33.228" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 04:42:33.228" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 04:42:33.511" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 04:42:33.511" level="INFO">5: matched - GO</msg>
+<status status="PASS" endtime="20170115 04:42:33.511" starttime="20170115 04:42:33.227"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:33.511" starttime="20170115 04:42:33.225"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath_login}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:33.511" level="INFO">Clicking element '//li/a[contains(., 'Login')]'.</msg>
+<status status="PASS" endtime="20170115 04:42:34.205" starttime="20170115 04:42:33.511"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:34.205" starttime="20170115 04:42:33.223"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_login_field}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:34.208" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 04:42:34.208" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 04:42:34.208" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 04:42:34.436" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 04:42:34.436" level="INFO">5: matched - GO</msg>
+<status status="PASS" endtime="20170115 04:42:34.436" starttime="20170115 04:42:34.207"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:34.436" starttime="20170115 04:42:34.206"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath_login_field}</arg>
+<arg>${LOGIN}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:34.437" level="INFO">Typing text 'mariano' into text field '//input[contains(@id,'inputEmail')]'</msg>
+<status status="PASS" endtime="20170115 04:42:35.151" starttime="20170115 04:42:34.437"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_password_field}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:35.153" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 04:42:35.154" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 04:42:35.154" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 04:42:35.374" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 04:42:35.374" level="INFO">5: matched - GO</msg>
+<status status="PASS" endtime="20170115 04:42:35.374" starttime="20170115 04:42:35.153"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:35.374" starttime="20170115 04:42:35.151"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath_password_field}</arg>
+<arg>${PASS}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:35.375" level="INFO">Typing text 'italiano' into text field '//input[contains(@id,'inputPassword')]'</msg>
+<status status="PASS" endtime="20170115 04:42:36.027" starttime="20170115 04:42:35.374"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_signin}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:36.028" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 04:42:36.029" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 04:42:36.029" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 04:42:36.240" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 04:42:36.240" level="INFO">5: matched - GO</msg>
+<status status="PASS" endtime="20170115 04:42:36.240" starttime="20170115 04:42:36.028"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:36.241" starttime="20170115 04:42:36.027"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath_signin}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:36.241" level="INFO">Clicking element '//button[contains(., 'Sign in')]'.</msg>
+<status status="PASS" endtime="20170115 04:42:37.289" starttime="20170115 04:42:36.241"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>My events</arg>
+</arguments>
+<msg timestamp="20170115 04:42:37.724" level="INFO">Current page contains text 'My events'.</msg>
+<status status="PASS" endtime="20170115 04:42:37.724" starttime="20170115 04:42:37.289"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:37.725" starttime="20170115 04:42:33.217"></status>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20170115 04:42:38.056" starttime="20170115 04:42:37.725"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:38.056" starttime="20170115 04:42:29.020"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:38.056" critical="yes" starttime="20170115 04:42:29.019"></status>
+</test>
+<test id="s1-t2" name="Logout">
+<kw name="Logout Test" library="DjangoTests">
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:42:38.060" starttime="20170115 04:42:38.060"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="Selenium2Library">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>60</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:42:38.061" starttime="20170115 04:42:38.061"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:38.061" level="INFO">Opening browser 'ff' to base url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 04:42:40.908" starttime="20170115 04:42:38.061"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:40.909" level="INFO">Opening url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 04:42:41.341" starttime="20170115 04:42:40.909"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170115 04:42:41.611" starttime="20170115 04:42:41.341"></status>
+</kw>
+<kw name="Page Should Not Contain" library="Selenium2Library">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>Service Temporarily Unavailable</arg>
+</arguments>
+<msg timestamp="20170115 04:42:42.241" level="INFO">Current page does not contain text 'Service Temporarily Unavailable'.</msg>
+<status status="PASS" endtime="20170115 04:42:42.241" starttime="20170115 04:42:41.611"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:42.241" starttime="20170115 04:42:38.060"></status>
+</kw>
+<kw name="Login" library="DjangoTests">
+<arguments>
+<arg>${LOGIN}</arg>
+<arg>${PASS}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//input[contains(@id,'inputEmail')]</arg>
+</arguments>
+<assign>
+<var>${xpath_login_field}</var>
+</assign>
+<msg timestamp="20170115 04:42:42.243" level="INFO">${xpath_login_field} = //input[contains(@id,'inputEmail')]</msg>
+<status status="PASS" endtime="20170115 04:42:42.243" starttime="20170115 04:42:42.243"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//input[contains(@id,'inputPassword')]</arg>
+</arguments>
+<assign>
+<var>${xpath_password_field}</var>
+</assign>
+<msg timestamp="20170115 04:42:42.244" level="INFO">${xpath_password_field} = //input[contains(@id,'inputPassword')]</msg>
+<status status="PASS" endtime="20170115 04:42:42.244" starttime="20170115 04:42:42.244"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//button[contains(., 'Sign in')]</arg>
+</arguments>
+<assign>
+<var>${xpath_signin}</var>
+</assign>
+<msg timestamp="20170115 04:42:42.245" level="INFO">${xpath_signin} = //button[contains(., 'Sign in')]</msg>
+<status status="PASS" endtime="20170115 04:42:42.246" starttime="20170115 04:42:42.245"></status>
+</kw>
+<kw name="Click Login" library="DjangoTests">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//li/a[contains(., 'Login')]</arg>
+</arguments>
+<assign>
+<var>${xpath_login}</var>
+</assign>
+<msg timestamp="20170115 04:42:42.247" level="INFO">${xpath_login} = //li/a[contains(., 'Login')]</msg>
+<status status="PASS" endtime="20170115 04:42:42.247" starttime="20170115 04:42:42.246"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_login}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:42.249" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 04:42:42.249" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 04:42:42.249" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 04:42:42.499" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 04:42:42.499" level="INFO">5: matched - GO</msg>
+<status status="PASS" endtime="20170115 04:42:42.499" starttime="20170115 04:42:42.248"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:42.499" starttime="20170115 04:42:42.247"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath_login}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:42.499" level="INFO">Clicking element '//li/a[contains(., 'Login')]'.</msg>
+<status status="PASS" endtime="20170115 04:42:43.164" starttime="20170115 04:42:42.499"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:43.164" starttime="20170115 04:42:42.246"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_login_field}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:43.165" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 04:42:43.165" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 04:42:43.165" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 04:42:43.372" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 04:42:43.372" level="INFO">5: matched - GO</msg>
+<status status="PASS" endtime="20170115 04:42:43.372" starttime="20170115 04:42:43.164"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:43.372" starttime="20170115 04:42:43.164"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath_login_field}</arg>
+<arg>${LOGIN}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:43.372" level="INFO">Typing text 'mariano' into text field '//input[contains(@id,'inputEmail')]'</msg>
+<status status="PASS" endtime="20170115 04:42:44.034" starttime="20170115 04:42:43.372"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_password_field}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:44.034" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 04:42:44.034" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 04:42:44.034" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 04:42:44.240" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 04:42:44.240" level="INFO">5: matched - GO</msg>
+<status status="PASS" endtime="20170115 04:42:44.240" starttime="20170115 04:42:44.034"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:44.240" starttime="20170115 04:42:44.034"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath_password_field}</arg>
+<arg>${PASS}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:44.240" level="INFO">Typing text 'italiano' into text field '//input[contains(@id,'inputPassword')]'</msg>
+<status status="PASS" endtime="20170115 04:42:44.950" starttime="20170115 04:42:44.240"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_signin}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:44.951" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 04:42:44.951" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 04:42:44.951" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 04:42:45.166" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 04:42:45.166" level="INFO">5: matched - GO</msg>
+<status status="PASS" endtime="20170115 04:42:45.166" starttime="20170115 04:42:44.951"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:45.166" starttime="20170115 04:42:44.950"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath_signin}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:45.167" level="INFO">Clicking element '//button[contains(., 'Sign in')]'.</msg>
+<status status="PASS" endtime="20170115 04:42:46.291" starttime="20170115 04:42:45.167"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>My events</arg>
+</arguments>
+<msg timestamp="20170115 04:42:46.718" level="INFO">Current page contains text 'My events'.</msg>
+<status status="PASS" endtime="20170115 04:42:46.718" starttime="20170115 04:42:46.291"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:46.719" starttime="20170115 04:42:42.242"></status>
+</kw>
+<kw name="Click Logout" library="DjangoTests">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//li/a[contains(., 'Logout')]</arg>
+</arguments>
+<assign>
+<var>${xpath_logout}</var>
+</assign>
+<msg timestamp="20170115 04:42:46.721" level="INFO">${xpath_logout} = //li/a[contains(., 'Logout')]</msg>
+<status status="PASS" endtime="20170115 04:42:46.721" starttime="20170115 04:42:46.720"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_logout}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:46.723" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 04:42:46.723" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 04:42:46.723" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 04:42:46.942" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 04:42:46.942" level="INFO">5: matched - GO</msg>
+<status status="PASS" endtime="20170115 04:42:46.942" starttime="20170115 04:42:46.722"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:42:46.943" starttime="20170115 04:42:46.721"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath_logout}</arg>
+</arguments>
+<msg timestamp="20170115 04:42:46.944" level="INFO">Clicking element '//li/a[contains(., 'Logout')]'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" endtime="20170115 04:42:47.540" starttime="20170115 04:42:47.540"></status>
+</kw>
+<msg timestamp="20170115 04:42:47.540" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Execution terminated by signal</msg>
+<status status="FAIL" endtime="20170115 04:42:47.543" starttime="20170115 04:42:46.943"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:42:47.543" starttime="20170115 04:42:46.719"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:42:47.543" starttime="20170115 04:42:38.060"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:42:47.543" critical="yes" starttime="20170115 04:42:38.059">Execution terminated by signal</status>
+</test>
+<test id="s1-t3" name="Check forms for logged user">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 04:42:47.549" critical="yes" starttime="20170115 04:42:47.548">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t4" name="Check forms for unregistered user">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 04:42:47.553" critical="yes" starttime="20170115 04:42:47.552">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t5" name="Register and Login">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 04:42:47.556" critical="yes" starttime="20170115 04:42:47.556">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t6" name="Add and Modfify and Cancel event and sector">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 04:42:47.561" critical="yes" starttime="20170115 04:42:47.560">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t7" name="Place reservation">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 04:42:47.564" critical="yes" starttime="20170115 04:42:47.564">Test execution stopped due to a fatal error.</status>
+</test>
+<kw type="teardown" name="Finish Test Set" library="DjangoTests">
+<kw name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170115 04:42:47.830" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170115 04:42:47.830" starttime="20170115 04:42:47.568"></status>
+</kw>
+<msg timestamp="20170115 04:42:47.842" level="FAIL">CannotSendRequest</msg>
+<status status="FAIL" endtime="20170115 04:42:47.843" starttime="20170115 04:42:47.568"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:42:47.843" starttime="20170115 04:42:47.567">CannotSendRequest</status>
+</kw>
+<status status="FAIL" endtime="20170115 04:42:47.844" starttime="20170115 04:42:28.868">Suite teardown failed:
+CannotSendRequest</status>
+</suite>
+<statistics>
+<total>
+<stat fail="7" pass="0">Critical Tests</stat>
+<stat fail="7" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat info="combined" fail="2" combined="NOT robot-exit" pass="0">NOT robot-exit</stat>
+<stat fail="5" pass="0">robot-exit</stat>
+</tag>
+<suite>
+<stat fail="7" id="s1" name="DjangoTestsSet" pass="0">DjangoTestsSet</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20170115 04:42:47.540" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Execution terminated by signal</msg>
+</errors>
+</robot>
