@@ -13,10 +13,10 @@ before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
-  - "python manage.py runserver &"
+  - "cd TicketsRes;python manage.py runserver &"
   
 script: 
-    - "cd TicketsRes;python manage.py test"
+    - "python manage.py test"
     - "coverage run manage.py test"
     - "cd AutomaticTests;pybot --pythonpath autolib --outputdir log --consolemarkers on TestSets/DjangoTestsSet.txt"
     
