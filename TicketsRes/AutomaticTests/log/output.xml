@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170115 04:14:04.900" generator="Robot 3.0.1 (Python 2.7.12 on win32)">
+<suite source="D:\Dokumenty\Studia\9 semestr\PITE\TicketsReservation\TicketsRes\AutomaticTests\TestSets\DjangoTestsSet.txt" id="s1" name="DjangoTestsSet">
+<test id="s1-t1" name="Login">
+<kw name="Login Test" library="DjangoTests">
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:14:05.050" starttime="20170115 04:14:05.050"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="Selenium2Library">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>60</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:14:05.050" starttime="20170115 04:14:05.050"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20170115 04:14:05.051" level="INFO">Opening browser 'ff' to base url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 04:14:07.940" starttime="20170115 04:14:05.050"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+</arguments>
+<msg timestamp="20170115 04:14:07.941" level="INFO">Opening url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 04:14:08.406" starttime="20170115 04:14:07.941"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170115 04:14:08.675" starttime="20170115 04:14:08.406"></status>
+</kw>
+<kw name="Page Should Not Contain" library="Selenium2Library">
+<doc>Verifies the current page does not contain `text`.</doc>
+<arguments>
+<arg>Service Temporarily Unavailable</arg>
+</arguments>
+<msg timestamp="20170115 04:14:09.340" level="INFO">Current page does not contain text 'Service Temporarily Unavailable'.</msg>
+<status status="PASS" endtime="20170115 04:14:09.340" starttime="20170115 04:14:08.675"></status>
+</kw>
+<status status="PASS" endtime="20170115 04:14:09.340" starttime="20170115 04:14:05.050"></status>
+</kw>
+<kw name="Login" library="DjangoTests">
+<arguments>
+<arg>${LOGIN}</arg>
+<arg>${PASS}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//input[contains(@id,'inputEmail')]</arg>
+</arguments>
+<assign>
+<var>${xpath_login_field}</var>
+</assign>
+<msg timestamp="20170115 04:14:09.340" level="INFO">${xpath_login_field} = //input[contains(@id,'inputEmail')]</msg>
+<status status="PASS" endtime="20170115 04:14:09.340" starttime="20170115 04:14:09.340"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//input[contains(@id,'inputPassword')]</arg>
+</arguments>
+<assign>
+<var>${xpath_password_field}</var>
+</assign>
+<msg timestamp="20170115 04:14:09.341" level="INFO">${xpath_password_field} = //input[contains(@id,'inputPassword')]</msg>
+<status status="PASS" endtime="20170115 04:14:09.341" starttime="20170115 04:14:09.341"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//button[contains(., 'Sign in')]</arg>
+</arguments>
+<assign>
+<var>${xpath_signin}</var>
+</assign>
+<msg timestamp="20170115 04:14:09.341" level="INFO">${xpath_signin} = //button[contains(., 'Sign in')]</msg>
+<status status="PASS" endtime="20170115 04:14:09.341" starttime="20170115 04:14:09.341"></status>
+</kw>
+<kw name="Click Login" library="DjangoTests">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//li/a[contains(., 'Login')]</arg>
+</arguments>
+<assign>
+<var>${xpath_login}</var>
+</assign>
+<msg timestamp="20170115 04:14:09.342" level="INFO">${xpath_login} = //li/a[contains(., 'Login')]</msg>
+<status status="PASS" endtime="20170115 04:14:09.342" starttime="20170115 04:14:09.341"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_login}</arg>
+</arguments>
+<kw name="Wait For Timeout">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 04:14:09.346" level="FAIL">No keyword with name 'Wait For Timeout' found.</msg>
+<status status="FAIL" endtime="20170115 04:14:09.346" starttime="20170115 04:14:09.345"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:09.346" starttime="20170115 04:14:09.342"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:09.346" starttime="20170115 04:14:09.341"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:09.346" starttime="20170115 04:14:09.340"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:09.346" starttime="20170115 04:14:05.050"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:09.347" critical="yes" starttime="20170115 04:14:05.049">No keyword with name 'Wait For Timeout' found.</status>
+</test>
+<test id="s1-t2" name="Logout">
+<kw name="Logout Test" library="DjangoTests">
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:14:09.353" starttime="20170115 04:14:09.353"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="Selenium2Library">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>60</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:14:09.561" starttime="20170115 04:14:09.354"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20170115 04:14:09.561" level="INFO">Opening browser 'ff' to base url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 04:14:12.493" starttime="20170115 04:14:09.561"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+</arguments>
+<msg timestamp="20170115 04:14:12.493" level="INFO">Opening url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 04:14:12.942" starttime="20170115 04:14:12.493"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170115 04:14:14.962" level="FAIL">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<status status="FAIL" endtime="20170115 04:14:14.962" starttime="20170115 04:14:13.943"></status>
+</kw>
+<msg timestamp="20170115 04:14:14.962" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<msg timestamp="20170115 04:14:14.983" level="FAIL">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<status status="FAIL" endtime="20170115 04:14:14.984" starttime="20170115 04:14:12.942"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:14.984" starttime="20170115 04:14:09.353"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:14.985" starttime="20170115 04:14:09.353"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:14.986" critical="yes" starttime="20170115 04:14:09.352">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</status>
+</test>
+<test id="s1-t3" name="Check forms for logged user">
+<kw name="Check Forms Authorized Test" library="DjangoTests">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//li/a[contains(., 'Hi ${LOGIN}!')]</arg>
+</arguments>
+<assign>
+<var>${xpath_uhome}</var>
+</assign>
+<msg timestamp="20170115 04:14:15.002" level="INFO">${xpath_uhome} = //li/a[contains(., 'Hi mariano!')]</msg>
+<status status="PASS" endtime="20170115 04:14:15.002" starttime="20170115 04:14:15.001"></status>
+</kw>
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:14:15.003" starttime="20170115 04:14:15.003"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="Selenium2Library">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>60</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170115 04:14:17.020" level="FAIL">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<status status="FAIL" endtime="20170115 04:14:17.020" starttime="20170115 04:14:16.006"></status>
+</kw>
+<msg timestamp="20170115 04:14:17.021" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<msg timestamp="20170115 04:14:17.040" level="FAIL">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<status status="FAIL" endtime="20170115 04:14:17.041" starttime="20170115 04:14:15.004"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:17.041" starttime="20170115 04:14:15.002"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:17.042" starttime="20170115 04:14:15.001"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:17.043" critical="yes" starttime="20170115 04:14:14.999">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</status>
+</test>
+<test id="s1-t4" name="Check forms for unregistered user">
+<kw name="Check Forms Unauthorized Test" library="DjangoTests">
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170115 04:14:17.064" starttime="20170115 04:14:17.064"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="Selenium2Library">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>60</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" endtime="20170115 04:14:19.076" starttime="20170115 04:14:18.067"></status>
+</kw>
+<msg timestamp="20170115 04:14:19.076" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Execution terminated by signal</msg>
+<msg timestamp="20170115 04:14:19.093" level="FAIL">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<status status="FAIL" endtime="20170115 04:14:19.093" starttime="20170115 04:14:17.065"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:19.094" starttime="20170115 04:14:17.063"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:19.094" starttime="20170115 04:14:17.063"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:19.096" critical="yes" starttime="20170115 04:14:17.061">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</status>
+</test>
+<test id="s1-t5" name="Register and Login">
+<kw name="Register and Login Test" library="DjangoTests">
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=timestamp</arg>
+</arguments>
+<assign>
+<var>${date}</var>
+</assign>
+<status status="FAIL" endtime="20170115 04:14:19.120" starttime="20170115 04:14:19.119"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:19.121" starttime="20170115 04:14:19.118"></status>
+</kw>
+<status status="FAIL" endtime="20170115 04:14:19.122" critical="yes" starttime="20170115 04:14:19.115">Execution terminated by signal</status>
+</test>
+<test id="s1-t6" name="Add and Modfify and Cancel event and sector">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 04:14:19.134" critical="yes" starttime="20170115 04:14:19.132">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t7" name="Place reservation">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 04:14:19.144" critical="yes" starttime="20170115 04:14:19.143">Test execution stopped due to a fatal error.</status>
+</test>
+<kw type="teardown" name="Finish Test Set" library="DjangoTests">
+<kw name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<errors>
+<msg timestamp="20170115 04:14:05.037" level="ERROR">Error in file 'D:\Dokumenty\Studia\9 semestr\PITE\TicketsReservation\TicketsRes\AutomaticTests\TestCases\DjangoTests.txt': Importing test library 'lib_tests.LibTests' failed: ImportError: No module named lib_tests
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Windows\SYSTEM32\python27.zip
+  C:\Python27\DLLs
+  C:\Python27\lib
+  C:\Python27\lib\plat-win
+  C:\Python27\lib\lib-tk
+  C:\Python27
+  C:\Python27\lib\site-packages</msg>
+<msg timestamp="20170115 04:14:14.962" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<msg timestamp="20170115 04:14:17.021" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<msg timestamp="20170115 04:14:19.076" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Execution terminated by signal</msg>
+<msg timestamp="20170115 04:14:20.158" level="ERROR">Execution stopped by user.</msg>
+</errors>
+</robot>
