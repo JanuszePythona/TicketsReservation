@@ -165,6 +165,7 @@ Add sector
 	Input Text	${xpath_price}	35,50
 	Timeout	${xpath_add_btn}
 	Click Element	${xpath_add_btn}
+	Sleep 10
 	Page Should Contain	Reservation
 	
 Place reservation
