@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170115 20:39:04.865" generator="Robot 3.0.1 (Python 2.7.12 on win32)">
+<suite source="D:\Dokumenty\Studia\9 semestr\PITE\TicketsReservation\TicketsRes\AutomaticTests\TestSets\DjangoTestsSet.txt" id="s1" name="DjangoTestsSet">
+<test id="s1-t1" name="Login">
+<kw name="Login Test" library="DjangoTests">
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170115 20:39:05.162" starttime="20170115 20:39:05.162"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="Selenium2Library">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>60</arg>
+</arguments>
+<status status="PASS" endtime="20170115 20:39:05.163" starttime="20170115 20:39:05.162"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20170115 20:39:05.163" level="INFO">Opening browser 'firefox' to base url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 20:39:11.369" starttime="20170115 20:39:05.163"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+</arguments>
+<msg timestamp="20170115 20:39:11.370" level="INFO">Opening url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 20:39:14.687" starttime="20170115 20:39:11.370"></status>
+</kw>
+<kw name="Set Window Position" library="Selenium2Library">
+<doc>Sets the position `x` and `y` of the current window to the specified values.</doc>
+<arguments>
+<arg>0</arg>
+<arg>0</arg>
+</arguments>
+<status status="PASS" endtime="20170115 20:39:14.918" starttime="20170115 20:39:14.688"></status>
+</kw>
+<kw name="Set Window Size" library="Selenium2Library">
+<doc>Sets the `width` and `height` of the current window to the specified values.</doc>
+<arguments>
+<arg>1920</arg>
+<arg>1080</arg>
+</arguments>
+<status status="PASS" endtime="20170115 20:39:15.159" starttime="20170115 20:39:14.918"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170115 20:39:15.410" starttime="20170115 20:39:15.159"></status>
+</kw>
+<status status="PASS" endtime="20170115 20:39:15.410" starttime="20170115 20:39:05.162"></status>
+</kw>
+<kw name="Login" library="DjangoTests">
+<arguments>
+<arg>${LOGIN}</arg>
+<arg>${PASS}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//input[contains(@id,'inputEmail')]</arg>
+</arguments>
+<assign>
+<var>${xpath_login_field}</var>
+</assign>
+<msg timestamp="20170115 20:39:15.413" level="INFO">${xpath_login_field} = //input[contains(@id,'inputEmail')]</msg>
+<status status="PASS" endtime="20170115 20:39:15.413" starttime="20170115 20:39:15.412"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//input[contains(@id,'inputPassword')]</arg>
+</arguments>
+<assign>
+<var>${xpath_password_field}</var>
+</assign>
+<msg timestamp="20170115 20:39:15.415" level="INFO">${xpath_password_field} = //input[contains(@id,'inputPassword')]</msg>
+<status status="PASS" endtime="20170115 20:39:15.415" starttime="20170115 20:39:15.413"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//button[contains(., 'Sign in')]</arg>
+</arguments>
+<assign>
+<var>${xpath_signin}</var>
+</assign>
+<msg timestamp="20170115 20:39:15.416" level="INFO">${xpath_signin} = //button[contains(., 'Sign in')]</msg>
+<status status="PASS" endtime="20170115 20:39:15.416" starttime="20170115 20:39:15.415"></status>
+</kw>
+<kw name="Click Login" library="DjangoTests">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//li/a[contains(., 'Login')]</arg>
+</arguments>
+<assign>
+<var>${xpath_login}</var>
+</assign>
+<msg timestamp="20170115 20:39:15.418" level="INFO">${xpath_login} = //li/a[contains(., 'Login')]</msg>
+<status status="PASS" endtime="20170115 20:39:15.418" starttime="20170115 20:39:15.417"></status>
+</kw>
+<kw name="Timeout" library="DjangoTests">
+<arguments>
+<arg>${xpath_login}</arg>
+</arguments>
+<kw name="Wait For Timeout" library="lib_tests.LibTests">
+<arguments>
+<arg>${Locator}</arg>
+<arg>${TIMEOUT}</arg>
+</arguments>
+<msg timestamp="20170115 20:39:15.421" level="INFO">1: Before setting timeout</msg>
+<msg timestamp="20170115 20:39:15.421" level="INFO">2: Before checking loop</msg>
+<msg timestamp="20170115 20:39:15.421" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:15.644" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:15.644" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:16.645" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:16.645" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:16.645" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:16.852" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:16.852" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:17.852" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:17.852" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:17.852" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:18.058" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:18.058" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:19.058" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:19.058" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:19.058" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:19.278" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:19.278" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:20.278" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:20.278" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:20.278" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:20.503" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:20.503" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:21.503" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:21.503" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:21.503" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:21.721" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:21.721" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:22.722" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:22.722" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:22.722" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:22.948" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:22.948" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:23.949" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:23.949" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:23.949" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:24.161" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:24.161" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:25.161" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:25.161" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:25.161" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:25.381" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:25.381" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:26.381" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:26.381" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:26.381" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:26.622" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:26.622" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:27.622" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:27.622" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:27.622" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:27.845" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:27.845" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:28.845" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:28.845" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:28.845" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:29.067" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:29.067" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:30.067" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:30.067" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:30.067" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:30.287" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:30.287" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:31.288" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:31.288" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:31.288" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:31.510" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:31.510" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:32.510" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:32.510" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:32.510" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:32.729" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:32.729" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:33.729" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:33.729" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:33.729" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:33.953" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:33.953" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:34.953" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:34.953" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:34.953" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:35.173" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:35.173" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:36.174" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:36.174" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:36.174" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:36.394" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:36.394" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:37.395" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:37.395" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:37.395" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:37.617" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:37.617" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:38.617" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:38.617" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:38.617" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:38.836" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:38.836" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:39.837" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:39.837" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:39.837" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:40.062" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:40.062" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:41.062" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:41.062" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:41.062" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:41.282" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:41.282" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:42.282" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:42.282" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:42.282" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:42.503" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:42.503" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:43.503" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:43.503" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:43.503" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:43.725" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:43.725" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:44.725" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:44.725" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:44.725" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:44.944" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:44.944" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:45.945" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:45.945" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:45.945" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:46.170" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:46.170" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:47.170" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:47.170" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:47.170" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:47.390" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:47.390" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:48.390" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:48.390" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:48.390" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:48.610" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:48.610" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:49.610" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:49.610" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:49.610" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:49.833" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:49.833" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:50.834" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:50.834" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:50.834" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:51.053" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:51.053" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:52.054" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:52.054" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:52.054" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:52.277" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:52.277" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:53.277" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:53.277" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:53.277" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:53.495" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:53.495" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:54.496" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:54.496" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:54.496" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:54.713" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:54.713" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:55.713" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:55.713" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:55.713" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:55.932" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:55.932" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:56.932" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:56.932" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:56.932" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:57.150" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:57.150" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:58.151" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:58.151" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:58.151" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:58.378" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:58.378" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:39:59.379" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:39:59.379" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:39:59.379" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:39:59.597" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:39:59.597" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:00.598" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:00.598" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:00.598" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:00.807" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:00.807" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:01.807" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:01.807" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:01.807" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:02.011" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:02.011" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:03.012" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:03.012" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:03.012" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:03.218" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:03.218" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:04.218" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:04.218" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:04.218" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:04.435" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:04.435" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:05.435" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:05.435" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:05.435" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:05.653" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:05.653" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:06.654" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:06.654" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:06.654" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:06.872" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:06.872" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:07.873" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:07.873" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:07.873" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:08.092" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:08.092" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:09.092" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:09.092" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:09.092" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:09.298" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:09.298" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:10.298" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:10.298" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:10.298" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:10.506" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:10.506" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:11.507" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:11.508" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:11.508" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:11.726" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:11.726" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:12.726" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:12.726" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:12.726" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:12.944" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:12.944" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:13.945" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:13.945" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:13.945" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:14.156" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:14.156" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:15.156" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:15.156" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:15.156" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:15.373" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:15.373" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:16.373" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:16.373" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:16.373" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:16.581" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:16.581" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:17.581" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:17.581" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:17.581" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:17.800" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:17.800" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:18.801" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:18.801" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:18.801" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:19.012" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:19.012" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:20.013" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:20.013" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:20.013" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:20.218" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:20.218" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:21.219" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:21.219" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:21.219" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:21.436" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:21.436" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:22.437" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:22.437" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:22.437" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:22.654" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:22.654" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:23.654" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:23.654" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:23.654" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:23.871" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:23.871" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:24.871" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:24.871" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:24.871" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:25.088" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:25.088" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:26.088" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:26.088" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:26.088" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:26.332" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:26.332" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:27.332" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:27.332" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:27.332" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:27.555" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:27.555" level="INFO">7: there is no xpath in the screen - waiting 1 second</msg>
+<msg timestamp="20170115 20:40:28.556" level="INFO">8: consuming 1 second of timeout</msg>
+<msg timestamp="20170115 20:40:28.556" level="INFO">9: repeating the xpath matching</msg>
+<msg timestamp="20170115 20:40:28.556" level="INFO">3: before mathing xpath</msg>
+<msg timestamp="20170115 20:40:28.776" level="INFO">4: before checking results of matching</msg>
+<msg timestamp="20170115 20:40:28.776" level="INFO">6: there is no xpath in the screen but the timeout exceeded </msg>
+<msg timestamp="20170115 20:40:28.777" level="FAIL">AttributeError: 'LibTests' object has no attribute 'CaptureScreenShot'</msg>
+<status status="FAIL" endtime="20170115 20:40:28.778" starttime="20170115 20:39:15.420"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:28.778" starttime="20170115 20:39:15.419"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:28.779" starttime="20170115 20:39:15.416"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:28.779" starttime="20170115 20:39:15.411"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:28.780" starttime="20170115 20:39:05.162"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:28.781" critical="yes" starttime="20170115 20:39:05.161">AttributeError: 'LibTests' object has no attribute 'CaptureScreenShot'</status>
+</test>
+<test id="s1-t2" name="Logout">
+<kw name="Logout Test" library="DjangoTests">
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170115 20:40:28.802" starttime="20170115 20:40:28.801"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="Selenium2Library">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>60</arg>
+</arguments>
+<status status="PASS" endtime="20170115 20:40:29.021" starttime="20170115 20:40:28.802"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20170115 20:40:29.022" level="INFO">Opening browser 'firefox' to base url 'http://localhost:8000/'</msg>
+<status status="PASS" endtime="20170115 20:40:35.013" starttime="20170115 20:40:29.021"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${APP_Address}</arg>
+</arguments>
+<msg timestamp="20170115 20:40:35.014" level="INFO">Opening url 'http://localhost:8000/'</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170115 20:40:36.701" level="FAIL">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<status status="FAIL" endtime="20170115 20:40:36.701" starttime="20170115 20:40:35.678"></status>
+</kw>
+<msg timestamp="20170115 20:40:36.702" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<msg timestamp="20170115 20:40:36.720" level="FAIL">BadStatusLine: ''</msg>
+<status status="FAIL" endtime="20170115 20:40:36.721" starttime="20170115 20:40:35.014"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:36.721" starttime="20170115 20:40:28.800"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:36.722" starttime="20170115 20:40:28.799"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:36.723" critical="yes" starttime="20170115 20:40:28.797">BadStatusLine: ''</status>
+</test>
+<test id="s1-t3" name="Check forms for logged user">
+<kw name="Check Forms Authorized Test" library="DjangoTests">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//li/a[contains(., 'Hi ${LOGIN}!')]</arg>
+</arguments>
+<assign>
+<var>${xpath_uhome}</var>
+</assign>
+<msg timestamp="20170115 20:40:36.742" level="INFO">${xpath_uhome} = //li/a[contains(., 'Hi mariano!')]</msg>
+<status status="PASS" endtime="20170115 20:40:36.742" starttime="20170115 20:40:36.741"></status>
+</kw>
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170115 20:40:36.744" starttime="20170115 20:40:36.743"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="Selenium2Library">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>60</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" endtime="20170115 20:40:38.978" starttime="20170115 20:40:37.970"></status>
+</kw>
+<msg timestamp="20170115 20:40:38.979" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Execution terminated by signal</msg>
+<msg timestamp="20170115 20:40:38.995" level="FAIL">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<status status="FAIL" endtime="20170115 20:40:38.995" starttime="20170115 20:40:36.745"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:38.996" starttime="20170115 20:40:36.743"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:38.996" starttime="20170115 20:40:36.740"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:38.997" critical="yes" starttime="20170115 20:40:36.737">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</status>
+</test>
+<test id="s1-t4" name="Check forms for unregistered user">
+<kw name="Check Forms Unauthorized Test" library="DjangoTests">
+<kw name="Start Browser" library="DjangoTests">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 seconds</arg>
+</arguments>
+<status status="FAIL" endtime="20170115 20:40:39.023" starttime="20170115 20:40:39.022"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:39.023" starttime="20170115 20:40:39.021"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:39.024" starttime="20170115 20:40:39.020"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:39.025" critical="yes" starttime="20170115 20:40:39.016">Execution terminated by signal</status>
+</test>
+<test id="s1-t5" name="Register and Login">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 20:40:39.040" critical="yes" starttime="20170115 20:40:39.038">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t6" name="Add and Modfify and Cancel event and sector">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 20:40:39.053" critical="yes" starttime="20170115 20:40:39.050">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t7" name="Place reservation">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20170115 20:40:39.066" critical="yes" starttime="20170115 20:40:39.064">Test execution stopped due to a fatal error.</status>
+</test>
+<kw type="teardown" name="Finish Test Set" library="DjangoTests">
+<kw name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170115 20:40:40.495" level="FAIL">error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<status status="FAIL" endtime="20170115 20:40:40.496" starttime="20170115 20:40:39.485"></status>
+</kw>
+<msg timestamp="20170115 20:40:40.496" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<msg timestamp="20170115 20:40:40.510" level="FAIL">CannotSendRequest</msg>
+<status status="FAIL" endtime="20170115 20:40:40.511" starttime="20170115 20:40:39.077"></status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:40.511" starttime="20170115 20:40:39.076">CannotSendRequest</status>
+</kw>
+<status status="FAIL" endtime="20170115 20:40:40.512" starttime="20170115 20:39:04.868">Suite teardown failed:
+CannotSendRequest</status>
+</suite>
+<statistics>
+<total>
+<stat fail="7" pass="0">Critical Tests</stat>
+<stat fail="7" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat info="combined" fail="4" combined="NOT robot-exit" pass="0">NOT robot-exit</stat>
+<stat fail="3" pass="0">robot-exit</stat>
+</tag>
+<suite>
+<stat fail="7" id="s1" name="DjangoTestsSet" pass="0">DjangoTestsSet</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20170115 20:40:36.702" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+<msg timestamp="20170115 20:40:38.979" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Execution terminated by signal</msg>
+<msg timestamp="20170115 20:40:40.496" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: error: [Errno 10061] Nie mo\xbfna nawi\xb9za\xe6 po\xb3\xb9czenia, poniewa\xbf komputer docelowy aktywnie go odmawia</msg>
+</errors>
+</robot>
